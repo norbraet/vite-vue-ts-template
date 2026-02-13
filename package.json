@@ -14,7 +14,8 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "vue-tsc --noEmit",
     "hooks:install": "lefthook install",
-    "hooks:uninstall": "lefthook uninstall"
+    "hooks:uninstall": "lefthook uninstall",
+    "dev": "vite"
   },
   "dependencies": {
     "vue": "^3.5.25"
