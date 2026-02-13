@@ -15,10 +15,13 @@
     "typecheck": "vue-tsc --noEmit",
     "hooks:install": "lefthook install",
     "hooks:uninstall": "lefthook uninstall",
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.25"
+    "vue": "^3.5.25",
+    "vue-router": "^5.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
