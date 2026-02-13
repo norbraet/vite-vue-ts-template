@@ -4,6 +4,7 @@ import typescriptParser from '@typescript-eslint/parser'
 import vue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
 import prettier from 'eslint-config-prettier'
+import boundaries from 'eslint-plugin-boundaries'
 import globals from 'globals'
 
 export default [
@@ -29,6 +30,38 @@ export default [
     },
     plugins: {
       '@typescript-eslint': typescript,
+      boundaries: boundaries,
+    },
+    settings: {
+      'boundaries/include': ['src/**/*'],
+      'boundaries/elements': [
+        {
+          mode: 'full',
+          type: 'shared',
+          pattern: ['src/shared/**/*'],
+        },
+        {
+          mode: 'full',
+          type: 'features',
+          capture: ['featureName'],
+          pattern: ['src/features/*/**/*'],
+        },
+        {
+          mode: 'full',
+          type: 'pages',
+          pattern: ['src/pages/**/*'],
+        },
+        {
+          mode: 'full',
+          type: 'app',
+          pattern: ['src/app/**/*'],
+        },
+        {
+          mode: 'full',
+          type: 'neverImport',
+          pattern: ['src/*', 'src/assets/**/*'],
+        },
+      ],
     },
     rules: {
       ...typescript.configs.recommended.rules,
@@ -36,6 +69,33 @@ export default [
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-explicit-any': 'warn',
       'prefer-const': 'error',
+
+      'boundaries/no-unknown': ['error'],
+      'boundaries/no-unknown-files': ['error'],
+      'boundaries/element-types': [
+        'error',
+        {
+          default: 'disallow',
+          rules: [
+            {
+              from: ['shared'],
+              allow: ['shared'],
+            },
+            {
+              from: ['features'],
+              allow: ['shared', ['features', { featureName: '${from.featureName}' }]],
+            },
+            {
+              from: ['pages'],
+              allow: ['shared', 'features'],
+            },
+            {
+              from: ['app'],
+              allow: ['shared', 'features', 'pages'],
+            },
+          ],
+        },
+      ],
     },
   },
 
@@ -55,6 +115,38 @@ export default [
     },
     plugins: {
       '@typescript-eslint': typescript,
+      boundaries: boundaries,
+    },
+    settings: {
+      'boundaries/include': ['src/**/*'],
+      'boundaries/elements': [
+        {
+          mode: 'full',
+          type: 'shared',
+          pattern: ['src/shared/**/*'],
+        },
+        {
+          mode: 'full',
+          type: 'features',
+          capture: ['featureName'],
+          pattern: ['src/features/*/**/*'],
+        },
+        {
+          mode: 'full',
+          type: 'pages',
+          pattern: ['src/pages/**/*'],
+        },
+        {
+          mode: 'full',
+          type: 'app',
+          pattern: ['src/app/**/*'],
+        },
+        {
+          mode: 'full',
+          type: 'neverImport',
+          pattern: ['src/*', 'src/assets/**/*'],
+        },
+      ],
     },
     rules: {
       'vue/multi-word-component-names': 'off',
@@ -65,6 +157,33 @@ export default [
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-explicit-any': 'warn',
       'prefer-const': 'error',
+
+      'boundaries/no-unknown': ['error'],
+      'boundaries/no-unknown-files': ['error'],
+      'boundaries/element-types': [
+        'error',
+        {
+          default: 'disallow',
+          rules: [
+            {
+              from: ['shared'],
+              allow: ['shared'],
+            },
+            {
+              from: ['features'],
+              allow: ['shared', ['features', { featureName: '${from.featureName}' }]],
+            },
+            {
+              from: ['pages'],
+              allow: ['shared', 'features'],
+            },
+            {
+              from: ['app'],
+              allow: ['shared', 'features', 'pages'],
+            },
+          ],
+        },
+      ],
     },
   },
 
