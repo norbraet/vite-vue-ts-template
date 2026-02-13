@@ -1,6 +1,14 @@
+# Dependencies
 node_modules/
 
+# Build outputs
 dist/
 build/
 
+# Generated files
 *.tsbuildinfo
+
+# Lockfiles
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
