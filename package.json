@@ -1,0 +1,13 @@
+{
+  "name": "vite-vue-ts-template",
+  "version": "1.0.0",
+  "description": "Vite + Vue 3 + TypeScript Template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Norbert Balaž",
+  "license": "MIT",
+  "packageManager": "pnpm@10.15.1"
+}
