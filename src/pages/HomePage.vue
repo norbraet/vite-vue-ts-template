@@ -13,18 +13,54 @@
   }
 
   const stack = [
-    'Vue 3',
-    'TypeScript',
-    'Vite',
-    'Vue Router',
-    'Pinia',
-    'Vue I18n',
-    'Zod',
-    'ESLint',
-    'Prettier',
-    'Lefthook',
-    'Feature Sliced Design',
-    'mise',
+    {
+      label: 'Vue 3',
+      link: 'https://vuejs.org/',
+    },
+    {
+      label: 'TypeScript',
+      link: 'https://www.typescriptlang.org/',
+    },
+    {
+      label: 'Vite',
+      link: 'https://vite.dev/',
+    },
+    {
+      label: 'Vue Router',
+      link: 'https://router.vuejs.org/',
+    },
+    {
+      label: 'Pinia Store',
+      link: 'https://pinia.vuejs.org/',
+    },
+    {
+      label: 'Vue I18n',
+      link: 'https://vue-i18n.intlify.dev/',
+    },
+    {
+      label: 'Zod',
+      link: 'https://zod.dev/',
+    },
+    {
+      label: 'ESLint',
+      link: 'https://eslint.org/',
+    },
+    {
+      label: 'Prettier',
+      link: 'https://prettier.io/',
+    },
+    {
+      label: 'Lefthook',
+      link: 'https://github.com/evilmartians/lefthook',
+    },
+    {
+      label: 'Feature Sliced Design',
+      link: 'https://feature-sliced.design/',
+    },
+    {
+      label: 'mise',
+      link: 'https://mise.jdx.dev/',
+    },
   ]
 </script>
 
@@ -44,7 +80,15 @@
     <section class="stack card">
       <h2>What's included</h2>
       <div class="badge-grid">
-        <span v-for="item in stack" :key="item" class="badge">{{ item }}</span>
+        <a
+          v-for="tool in stack"
+          :key="tool.label"
+          :href="tool.link"
+          class="badge"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ tool.label }}</a
+        >
       </div>
     </section>
   </div>
@@ -99,5 +143,16 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+
+  .badge-grid a.badge {
+    text-decoration: none;
+    color: var(--color-text-secondary);
+  }
+
+  .badge-grid a.badge:hover {
+    background-color: var(--color-primary-subtle);
+    color: var(--color-primary);
+    border-color: var(--color-primary-subtle);
   }
 </style>
