@@ -135,30 +135,41 @@ if (!result.success) { /* result.error.issues */ }</pre
 
 <style scoped>
   .guide {
-    max-width: 800px;
+    max-width: 760px;
   }
 
   h1 {
-    margin-bottom: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 + p {
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
   }
 
   .card {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .card h2 {
-    color: var(--color-primary);
-    margin-bottom: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.875rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--color-primary);
+    letter-spacing: -0.01em;
   }
 
   .card p {
     margin-bottom: 0.75rem;
+    font-size: 0.9375rem;
   }
 
   .card ol,
-  .card ul {
+  .card ul:not(.scripts) {
     margin: 0.75rem 0;
-    padding-left: 1.5rem;
+    padding-left: 1.25rem;
     list-style: initial;
   }
 
@@ -169,33 +180,37 @@ if (!result.success) { /* result.error.issues */ }</pre
   .card li {
     margin: 0.4rem 0;
     color: var(--color-text-secondary);
+    font-size: 0.9375rem;
   }
 
   .card li strong {
     color: var(--color-text-primary);
+    font-weight: 600;
   }
 
   code {
-    font-family: 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-    font-size: 0.875em;
-    background-color: var(--color-bg-primary);
+    font-family: var(--font-mono);
+    font-size: 0.8125em;
+    background-color: var(--color-bg-subtle);
+    color: var(--color-primary);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
-    padding: 0.1em 0.35em;
+    padding: 0.15em 0.4em;
   }
 
   .code-block {
-    font-family: 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-    font-size: 0.85rem;
-    background-color: var(--color-bg-primary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    /* Always dark — looks like a real code editor regardless of theme */
+    background-color: #09090b;
+    color: #d4d4d8;
+    border: 1px solid #27272a;
+    border-radius: var(--radius-lg);
+    padding: 1.125rem 1.25rem;
     overflow-x: auto;
     white-space: pre;
-    color: var(--color-text-primary);
-    margin: 0.75rem 0;
-    line-height: 1.6;
+    margin: 0.875rem 0;
+    line-height: 1.7;
   }
 
   .hint {
@@ -204,10 +219,24 @@ if (!result.success) { /* result.error.issues */ }</pre
     font-style: italic;
   }
 
+  .scripts {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
   .scripts li {
     display: flex;
-    gap: 0.5rem;
     align-items: baseline;
-    margin: 0.5rem 0;
+    gap: 0.625rem;
+    padding: 0.375rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.9375rem;
+  }
+
+  .scripts li:last-child {
+    border-bottom: none;
   }
 </style>

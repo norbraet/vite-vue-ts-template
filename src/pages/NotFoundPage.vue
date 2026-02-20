@@ -32,41 +32,43 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    min-height: calc(100vh - 3.5rem - 3rem);
   }
 
   .error-content {
     text-align: center;
-    max-width: 500px;
+    max-width: 480px;
   }
 
   .error-content h1 {
-    font-size: 6rem;
-    color: var(--color-primary);
-    margin: 0;
+    font-size: clamp(5rem, 20vw, 9rem);
+    font-weight: 700;
+    letter-spacing: -0.06em;
     line-height: 1;
+    margin: 0 0 0.5rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .error-content h2 {
-    font-size: 2rem;
-    margin: 1rem 0;
-    color: var(--color-text-primary);
+    font-size: 1.375rem;
+    margin-bottom: 0.75rem;
   }
 
   .error-content p {
-    font-size: 1.1rem;
-    margin: 1.5rem 0;
-    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
   }
 
   .actions {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     justify-content: center;
-    margin-top: 2rem;
   }
 
   .actions button {
-    min-width: 120px;
+    min-width: 7.5rem;
   }
 </style>

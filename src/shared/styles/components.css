@@ -1,25 +1,76 @@
 @layer components {
+  /* ── Layout ─────────────────────────────────────────────────────────────── */
+
+  .container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ── Card ───────────────────────────────────────────────────────────────── */
+
+  .card {
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ── Buttons ─────────────────────────────────────────────────────────────── */
+
   .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.375rem;
+    padding: 0 1.25rem;
     background-color: var(--color-primary);
-    color: white;
-    border: none;
+    color: var(--color-primary-fg);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.005em;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: var(--shadow-xs);
+    transition:
+      background-color 0.15s ease,
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
   }
 
   .btn-primary:hover {
     background-color: var(--color-primary-hover);
-  }
-
-  .card {
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 1rem;
+    color: var(--color-primary-fg);
     box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
   }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-xs);
+  }
+
+  /* ── Badge ───────────────────────────────────────────────────────────────── */
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    height: 1.75rem;
+    padding: 0 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border-radius: var(--radius-full);
+    background-color: var(--color-bg-subtle);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    white-space: nowrap;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease;
   }
 }

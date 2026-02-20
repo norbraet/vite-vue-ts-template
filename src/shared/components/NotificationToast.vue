@@ -2,16 +2,6 @@
   import { useAppStore } from '@/shared/stores/useAppStore'
 
   const appStore = useAppStore()
-
-  const getTypeColor = (type: string) => {
-    const colors = {
-      info: '#2563eb',
-      success: '#16a34a',
-      warning: '#f59e0b',
-      error: '#dc2626',
-    }
-    return colors[type as keyof typeof colors] || colors.info
-  }
 </script>
 
 <template>
@@ -21,10 +11,9 @@
         v-for="notification in appStore.notifications"
         :key="notification.id"
         :class="['notification', `notification-${notification.type}`]"
-        :style="{ borderLeftColor: getTypeColor(notification.type) }"
       >
         <div class="notification-content">
-          <span class="notification-icon">
+          <span class="notification-icon" aria-hidden="true">
             {{
               notification.type === 'success'
                 ? '✓'
@@ -52,9 +41,9 @@
 <style scoped>
   .notification-container {
     position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1000;
+    top: 4.5rem;
+    right: 1.25rem;
+    z-index: 9999;
     pointer-events: none;
   }
 
@@ -67,94 +56,128 @@
   .notification {
     background: var(--color-bg-primary);
     border: 1px solid var(--color-border);
-    border-left-width: 4px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    padding: 1rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    padding: 0.875rem 1rem;
     min-width: 300px;
-    max-width: 400px;
+    max-width: 380px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.75rem;
     pointer-events: auto;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .notification-content {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.625rem;
     flex: 1;
+    min-width: 0;
   }
 
   .notification-icon {
-    font-weight: bold;
-    font-size: 1.1rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
   }
 
   .notification-message {
     color: var(--color-text-primary);
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    font-weight: 500;
     line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .notification-close {
     background: none;
     border: none;
+    height: auto;
+    padding: 0.125rem;
     color: var(--color-text-secondary);
     cursor: pointer;
-    padding: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1;
-    transition: color 0.2s ease;
+    flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    transition: color 0.15s ease;
   }
 
   .notification-close:hover {
     color: var(--color-text-primary);
+    background-color: transparent;
+  }
+
+  /* Type variants — accent via left border + icon color */
+  .notification-info {
+    border-left: 3px solid var(--color-primary);
+  }
+  .notification-info .notification-icon {
+    color: var(--color-primary);
   }
 
   .notification-success {
-    border-left-color: #16a34a;
+    border-left: 3px solid var(--color-success);
   }
-
-  .notification-error {
-    border-left-color: #dc2626;
+  .notification-success .notification-icon {
+    color: var(--color-success);
   }
 
   .notification-warning {
-    border-left-color: #f59e0b;
+    border-left: 3px solid var(--color-warning);
+  }
+  .notification-warning .notification-icon {
+    color: var(--color-warning);
   }
 
-  .notification-info {
-    border-left-color: #2563eb;
+  .notification-error {
+    border-left: 3px solid var(--color-error);
+  }
+  .notification-error .notification-icon {
+    color: var(--color-error);
   }
 
-  /* Transition animations */
+  /* Transition */
   .notification-enter-active {
-    transition: all 0.3s ease-out;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
   }
 
   .notification-leave-active {
-    transition: all 0.3s ease-in;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
   }
 
   .notification-enter-from {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(1.5rem);
   }
 
   .notification-leave-to {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(1.5rem);
   }
 
   .notification-move {
-    transition: transform 0.3s ease;
+    transition: transform 0.25s ease;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     .notification-container {
       left: 1rem;
       right: 1rem;
+      top: 4.5rem;
     }
 
     .notification {

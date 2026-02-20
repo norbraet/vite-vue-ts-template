@@ -11,6 +11,21 @@
     appStore.setTheme(next)
     appStore.addNotification(`Switched to ${next} theme`, 'info')
   }
+
+  const stack = [
+    'Vue 3',
+    'TypeScript',
+    'Vite',
+    'Vue Router',
+    'Pinia',
+    'Vue I18n',
+    'Zod',
+    'ESLint',
+    'Prettier',
+    'Lefthook',
+    'Feature Sliced Design',
+    'mise',
+  ]
 </script>
 
 <template>
@@ -20,26 +35,17 @@
       <p>{{ t('home.subtitle') }}</p>
       <div class="hero-actions">
         <router-link to="/guide" class="btn-primary">{{ t('home.viewGuide') }}</router-link>
-        <button @click="toggleTheme">{{ t('home.themeToggle', { theme: appStore.theme }) }}</button>
+        <button @click="toggleTheme">
+          {{ t('home.themeToggle', { theme: appStore.theme }) }}
+        </button>
       </div>
     </section>
 
     <section class="stack card">
       <h2>What's included</h2>
-      <ul>
-        <li>Vue 3 + Composition API</li>
-        <li>TypeScript (strict mode)</li>
-        <li>Vite</li>
-        <li>Vue Router (SPA)</li>
-        <li>Pinia</li>
-        <li>Vue I18n</li>
-        <li>Zod</li>
-        <li>ESLint + Prettier</li>
-        <li>Lefthook (Git hooks)</li>
-        <li>Feature Sliced Design</li>
-        <li>mise (toolchain manager)</li>
-        <li>EditorConfig</li>
-      </ul>
+      <div class="badge-grid">
+        <span v-for="item in stack" :key="item" class="badge">{{ item }}</span>
+      </div>
     </section>
   </div>
 </template>
@@ -47,56 +53,51 @@
 <style scoped>
   .hero {
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 5rem 1rem 4rem;
   }
 
   .hero h1 {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    background: linear-gradient(140deg, var(--color-text-primary) 40%, var(--color-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .hero p {
-    font-size: 1.1rem;
-    max-width: 520px;
-    margin: 0 auto 2rem;
+    font-size: 1.125rem;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
   }
 
   .hero-actions {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     justify-content: center;
     flex-wrap: wrap;
   }
 
   .stack {
-    max-width: 480px;
+    max-width: 560px;
     margin: 0 auto;
   }
 
   .stack h2 {
-    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     margin-bottom: 1rem;
   }
 
-  .stack ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.4rem 1rem;
-    list-style: none;
-    padding: 0;
-  }
-
-  .stack li {
-    color: var(--color-text-secondary);
-    font-size: 0.9rem;
-    padding-left: 1rem;
-    position: relative;
-  }
-
-  .stack li::before {
-    content: '·';
-    color: var(--color-primary);
-    position: absolute;
-    left: 0;
+  .badge-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 </style>

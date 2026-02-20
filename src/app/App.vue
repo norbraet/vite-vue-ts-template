@@ -39,90 +39,101 @@
 
 <style scoped>
   header {
-    border-bottom: 1px solid var(--color-border);
-    background-color: var(--color-bg-secondary);
     position: sticky;
     top: 0;
     z-index: 100;
+    background: var(--color-nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 72rem;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 0 1.5rem;
+    height: 3.5rem;
   }
 
   .logo {
-    font-size: 1.25rem;
+    font-size: 0.9375rem;
     font-weight: 700;
-    color: var(--color-primary);
+    letter-spacing: -0.02em;
     text-decoration: none;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-text-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: opacity 0.15s ease;
   }
 
   .logo:hover {
-    color: var(--color-primary-hover);
+    opacity: 0.75;
   }
 
   .nav-links {
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 0.25rem;
   }
 
   .nav-link {
     color: var(--color-text-secondary);
     text-decoration: none;
     font-weight: 500;
-    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    padding: 0.375rem 0.75rem;
     border-radius: var(--radius-md);
-    transition: all 0.2s ease;
+    transition:
+      color 0.15s ease,
+      background-color 0.15s ease;
   }
 
   .nav-link:hover {
-    color: var(--color-primary);
-    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-subtle);
   }
 
   .nav-link.router-link-active {
     color: var(--color-primary);
-    background-color: var(--color-bg-primary);
+    background-color: var(--color-primary-subtle);
     font-weight: 600;
   }
 
   main {
-    min-height: calc(100vh - 140px);
-    padding: 2rem 1rem;
+    min-height: calc(100vh - 3.5rem - 3rem);
+    padding: 3rem 0;
   }
 
   footer {
-    text-align: center;
-    padding: 1rem;
     border-top: 1px solid var(--color-border);
     background-color: var(--color-bg-secondary);
   }
 
   footer p {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
     color: var(--color-text-secondary);
-    font-size: 0.875rem;
-    margin: 0;
+    font-size: 0.8125rem;
+    text-align: center;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     .main-header {
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem;
+      padding: 0 1rem;
     }
 
-    .nav-links {
-      gap: 1rem;
+    .logo {
+      font-size: 0.875rem;
     }
 
     .nav-link {
-      padding: 0.25rem 0.75rem;
-      font-size: 0.9rem;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.8125rem;
     }
   }
 </style>
