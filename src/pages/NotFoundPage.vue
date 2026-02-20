@@ -20,7 +20,7 @@
       <p>The page you're looking for doesn't exist or has been moved.</p>
 
       <div class="actions">
-        <button @click="goHome" class="btn-primary">Go Home</button>
+        <button class="btn-primary" @click="goHome">Go Home</button>
         <button @click="goBack">Go Back</button>
       </div>
     </div>

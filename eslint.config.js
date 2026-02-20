@@ -91,7 +91,7 @@ export default [
             },
             {
               from: ['app'],
-              allow: ['shared', 'features', 'pages'],
+              allow: ['shared', 'features', 'pages', 'app'],
             },
           ],
         },
@@ -179,11 +179,20 @@ export default [
             },
             {
               from: ['app'],
-              allow: ['shared', 'features', 'pages'],
+              allow: ['shared', 'features', 'pages', 'app'],
             },
           ],
         },
       ],
+    },
+  },
+
+  // The app entry point is the composition root — it wires all layers together
+  // and is exempt from layer-boundary import checks.
+  {
+    files: ['src/app/main.ts'],
+    rules: {
+      'boundaries/no-unknown': 'off',
     },
   },
 

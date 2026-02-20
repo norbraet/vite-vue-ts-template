@@ -1,17 +1,26 @@
 <script setup lang="ts">
-  // Main App component with Vue Router integration
+  import { onMounted } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  import NotificationToast from '@/shared/components/NotificationToast.vue'
+  import { useAppStore } from '@/shared/stores/useAppStore'
+
+  const { t } = useI18n()
+  const appStore = useAppStore()
+
+  onMounted(() => {
+    appStore.initializeTheme()
+  })
 </script>
 
 <template>
   <div id="app">
     <header>
       <nav class="main-header">
-        <router-link to="/" class="logo"> Vue 3 + TypeScript Template </router-link>
+        <router-link to="/" class="logo">Vue 3 Template</router-link>
 
         <div class="nav-links">
-          <router-link to="/" class="nav-link">Home</router-link>
-          <router-link to="/auth" class="nav-link">Auth</router-link>
-          <router-link to="/about" class="nav-link">About</router-link>
+          <router-link to="/" class="nav-link">{{ t('nav.home') }}</router-link>
+          <router-link to="/guide" class="nav-link">{{ t('nav.guide') }}</router-link>
         </div>
       </nav>
     </header>
@@ -21,8 +30,10 @@
     </main>
 
     <footer>
-      <p>Feature Sliced Design Architecture with Vue Router</p>
+      <p>Feature Sliced Design · Vue 3 · TypeScript · Pinia · Vue Router · Vue I18n · Zod</p>
     </footer>
+
+    <NotificationToast />
   </div>
 </template>
 
@@ -94,7 +105,7 @@
 
   footer p {
     color: var(--color-text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     margin: 0;
   }
 

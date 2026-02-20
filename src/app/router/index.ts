@@ -1,34 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 
-// Import pages
-import HomePage from '@/pages/HomePage.vue'
-import AuthPage from '@/pages/AuthPage.vue'
-import AboutPage from '@/pages/AboutPage.vue'
-
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    component: HomePage,
+    component: () => import('@/pages/HomePage.vue'),
     meta: {
       title: 'Home',
     },
   },
   {
-    path: '/auth',
-    name: 'auth',
-    component: AuthPage,
+    path: '/guide',
+    name: 'guide',
+    component: () => import('@/pages/GuidePage.vue'),
     meta: {
-      title: 'Authentication',
-    },
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: AboutPage,
-    meta: {
-      title: 'About',
+      title: 'Guide',
     },
   },
   {
@@ -46,7 +33,6 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    // Always scroll to top when navigating to a new route
     if (savedPosition) {
       return savedPosition
     } else {
@@ -55,11 +41,9 @@ const router = createRouter({
   },
 })
 
-// Global navigation guards
 router.beforeEach((to, from, next) => {
-  // Set page title
   if (to.meta?.title) {
-    document.title = `${to.meta.title} | Vue 3 + TypeScript Template`
+    document.title = `${to.meta.title}`
   }
 
   next()
