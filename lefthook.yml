@@ -16,43 +16,8 @@ pre-commit:
 
 commit-msg:
   commands:
-    conventional:
-      run: |
-        MSG_FILE="{1}"
-        MSG="$(cat "$MSG_FILE")"
-        FIRST_LINE="$(printf '%s' "$MSG" | head -n 1)"
-
-        # Regex: optional scope, optional "!" for breaking change, and description
-        REGEX="^(feat|fix|docs|style|refactor|perf|test|chore|build|ci)(\([^)]+\))?(!)?: .+"
-
-        if ! echo "$FIRST_LINE" | grep -qE "$REGEX"; then
-          echo "❌ Invalid commit message!"
-          echo ""
-          echo "Your commit message must follow the Conventional Commits format:"
-          echo "   type(optional-scope)!?: description"
-          echo ""
-          echo "Allowed commit types:"
-          echo "   feat | fix | docs | style | refactor | perf | test | chore | build | ci"
-          echo ""
-          echo "Rules:"
-          echo " - A type is required."
-          echo " - Scope is optional but must be inside parentheses when used."
-          echo " - Add '!' after type or type(scope) to indicate a BREAKING CHANGE."
-          echo " - A colon + space must follow type or type(scope) or type(scope)!"
-          echo " - Multi-line commit messages are allowed — only the first line must match."
-          echo ""
-          echo "Valid examples:"
-          echo "   feat: add user authentication"
-          echo "   fix(server): resolve database connection issue"
-          echo "   docs: update API documentation"
-          echo "   style(ui): improve layout spacing"
-          echo "   refactor!: remove deprecated API endpoints"
-          echo "   feat(account)!: migrate user model schema"
-          echo "   perf(api): improve query performance"
-          echo "   ci(github-actions): fix build pipeline"
-          echo ""
-          exit 1
-        fi
+    commitlint:
+      run: pnpm commitlint --edit {1}
       skip:
         - merge
         - rebase

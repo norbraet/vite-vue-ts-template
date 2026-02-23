@@ -72,6 +72,10 @@
       label: 'mise',
       link: 'https://mise.jdx.dev/',
     },
+    {
+      label: 'Commitlint',
+      link: 'https://commitlint.js.org/',
+    },
   ]
 </script>
 
