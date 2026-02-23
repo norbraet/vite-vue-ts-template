@@ -1,13 +1,15 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { THEME_OPTIONS } from '@/shared/constants/app'
+import { STORAGE_KEYS, THEME_OPTIONS } from '@/shared/constants/app'
+import { isTheme } from '@/shared/services/themeService'
+import type { Theme } from '@/shared/types/common'
 
 /**
  * Global app store for app-wide state
  * This is shared across all features
  */
 export const useAppStore = defineStore('app', () => {
-  const theme = ref<string>(THEME_OPTIONS.SYSTEM)
+  const theme = ref<Theme>(THEME_OPTIONS.SYSTEM)
   const isLoading = ref(false)
   const notifications = ref<Array<{ id: string; message: string; type: string }>>([])
 
@@ -22,7 +24,7 @@ export const useAppStore = defineStore('app', () => {
     return notifications.value.length
   })
 
-  function setTheme(newTheme: string) {
+  function setTheme(newTheme: Theme) {
     theme.value = newTheme
 
     document.documentElement.className = ''
@@ -61,8 +63,9 @@ export const useAppStore = defineStore('app', () => {
   }
 
   function initializeTheme() {
-    const savedTheme = localStorage.getItem('theme')
-    if (savedTheme && Object.values(THEME_OPTIONS).includes(savedTheme)) {
+    const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME)
+
+    if (isTheme(savedTheme)) {
       setTheme(savedTheme)
     }
   }

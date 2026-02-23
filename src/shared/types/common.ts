@@ -1,3 +1,5 @@
+import { THEME_OPTIONS } from '@/shared/constants/app'
+
 export interface ApiResponse<T = unknown> {
   data: T
   success: boolean
@@ -27,3 +29,5 @@ export interface FormValidationError {
   field: string
   message: string
 }
+
+export type Theme = (typeof THEME_OPTIONS)[keyof typeof THEME_OPTIONS]

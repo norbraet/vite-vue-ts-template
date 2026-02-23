@@ -7,9 +7,20 @@
   const appStore = useAppStore()
 
   const toggleTheme = () => {
-    const next = appStore.theme === THEME_OPTIONS.LIGHT ? THEME_OPTIONS.DARK : THEME_OPTIONS.LIGHT
-    appStore.setTheme(next)
-    appStore.addNotification(`Switched to ${next} theme`, 'info')
+    switch (appStore.theme) {
+      case 'dark':
+        appStore.setTheme(THEME_OPTIONS.LIGHT)
+        appStore.addNotification(`Switched to ${THEME_OPTIONS.LIGHT} theme`, 'info')
+        break
+      case 'light':
+        appStore.setTheme(THEME_OPTIONS.SYSTEM)
+        appStore.addNotification(`Switched to ${THEME_OPTIONS.SYSTEM} theme`, 'info')
+        break
+      case 'system':
+        appStore.setTheme(THEME_OPTIONS.DARK)
+        appStore.addNotification(`Switched to ${THEME_OPTIONS.DARK} theme`, 'info')
+        break
+    }
   }
 
   const stack = [
