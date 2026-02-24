@@ -1,0 +1,31 @@
+name: Stale
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-issue-stale: 45
+          days-before-issue-close: 14
+          days-before-pr-stale: 30
+          days-before-pr-close: 14
+          stale-issue-label: stale
+          stale-pr-label: stale
+          exempt-issue-labels: security,pinned
+          exempt-pr-labels: security,pinned,dependencies
+          stale-issue-message: >
+            This issue has had no activity for 45 days and is marked stale.
+            It will be closed in 14 days if there is no further activity.
+          stale-pr-message: >
+            This pull request has had no activity for 30 days and is marked stale.
+            It will be closed in 14 days if there is no further activity.

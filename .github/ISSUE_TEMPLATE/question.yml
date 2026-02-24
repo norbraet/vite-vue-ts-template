@@ -1,0 +1,25 @@
+name: Question
+description: Ask a usage or implementation question
+title: 'question: '
+labels: ['question', 'needs-triage']
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What do you need help with?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Include relevant code snippets, screenshots, and constraints.
+
+  - type: input
+    id: references
+    attributes:
+      label: References
+      description: Links to docs, PRs, or issues already reviewed.
+      placeholder: https://...

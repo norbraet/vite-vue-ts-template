@@ -1,0 +1,78 @@
+name: Bug Report
+description: Report a reproducible bug
+title: 'fix: '
+labels: ['bug', 'needs-triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug. Please provide enough detail to reproduce it reliably.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+      placeholder: A concise description of the bug.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Exact steps, including input data if relevant.
+      placeholder: |
+        1. Go to ...
+        2. Click on ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+    validations:
+      required: true
+
+  - type: input
+    id: repro
+    attributes:
+      label: Reproduction URL
+      description: Link to minimal reproduction (StackBlitz, repo, or branch).
+      placeholder: https://...
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - High (blocking)
+        - Medium (major impact)
+        - Low (minor impact)
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: App Version
+      description: Commit SHA, tag, or release version.
+      placeholder: main@<sha> or v1.2.3
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, OS, device, locale.
+      placeholder: Chrome 123, Windows 11, en-US
+    validations:
+      required: true

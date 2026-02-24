@@ -1,0 +1,55 @@
+name: Feature Request
+description: Propose an improvement
+title: 'feat: '
+labels: ['feature', 'needs-triage']
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What user problem are we solving?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution and expected behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What alternatives did you evaluate?
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: In-scope and out-of-scope details.
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Measurable criteria for completion.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - P1 (critical)
+        - P2 (high)
+        - P3 (normal)
+        - P4 (low)
+    validations:
+      required: true
