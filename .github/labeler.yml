@@ -1,37 +1,27 @@
 area/theme:
   - changed-files:
-      - any-glob-to-any-file:
-          - 'features/theme/**'
+      - any-glob-to-any-file: ['features/theme/**']
 
 area/notifications:
   - changed-files:
-      - any-glob-to-any-file:
-          - 'features/notifications/**'
+      - any-glob-to-any-file: ['features/notifications/**']
 
 area/router:
   - changed-files:
-      - any-glob-to-any-file:
-          - 'app/router/**'
+      - any-glob-to-any-file: ['app/router/**']
 
 area/i18n:
   - changed-files:
-      - any-glob-to-any-file:
-          - 'app/providers/i18n.ts'
-          - 'shared/i18n/**'
+      - any-glob-to-any-file: ['app/providers/i18n.ts', 'shared/i18n/**']
 
 area/ci:
   - changed-files:
-      - any-glob-to-any-file:
-          - '.github/workflows/**'
+      - any-glob-to-any-file: ['.github/workflows/**']
 
 area/docs:
   - changed-files:
-      - any-glob-to-any-file:
-          - '**/*.md'
-          - 'docs/**'
+      - any-glob-to-any-file: ['**/*.md', 'docs/**']
 
 area/dependencies:
   - changed-files:
-      - any-glob-to-any-file:
-          - 'package.json'
-          - 'pnpm-lock.yaml'
+      - any-glob-to-any-file: ['package.json', 'pnpm-lock.yaml']
