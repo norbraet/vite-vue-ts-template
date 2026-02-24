@@ -86,8 +86,8 @@ const { t } = useI18n()
     <section class="card">
       <h2>Validation (Zod)</h2>
       <p>
-        Schemas live in <code>src/shared/utils/validation.ts</code> (reusable primitives) or inside
-        a feature:
+        Schemas live in <code>src/shared/service/validation.ts</code> (reusable primitives) or
+        inside a feature:
       </p>
       <pre class="code-block">
 import { z } from 'zod'
