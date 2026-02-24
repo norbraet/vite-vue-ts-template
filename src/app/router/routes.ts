@@ -4,7 +4,7 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/pages/HomePage.vue'),
+    component: () => import('@/pages/home/HomePage.vue'),
     meta: {
       titleKey: 'home.meta.title',
     },
@@ -12,7 +12,7 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/guide',
     name: 'guide',
-    component: () => import('@/pages/GuidePage.vue'),
+    component: () => import('@/pages/guide/GuidePage.vue'),
     meta: {
       titleKey: 'guide.meta.title',
     },
@@ -20,7 +20,7 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: () => import('@/pages/NotFoundPage.vue'),
+    component: () => import('@/pages/not-found/NotFoundPage.vue'),
     meta: {
       titleKey: 'notFound.meta.title',
     },
