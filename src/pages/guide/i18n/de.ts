@@ -3,6 +3,65 @@ const guide = {
   meta: {
     title: 'Anleitung',
   },
+  architecture: {
+    title: 'Architektur (Feature-Sliced Design)',
+    descriptionRich: 'Diese Vorlage folgt {0} mit strikt durch {1} erzwungenen Import-Grenzen.',
+    importDirectionLabel: 'Import-Richtung:',
+    importDirectionRule: 'app -> pages -> features -> shared. Niemals nach oben importieren.',
+  },
+  providers: {
+    title: 'Application Provider',
+    description: 'Globale Integrationen werden in src/app/providers/ initialisiert.',
+    bootstrapNote: 'main.ts bootstrapped die App und ruft setupProviders(app) auf.',
+  },
+  feature: {
+    title: 'Ein Feature hinzufuegen',
+    intro: 'Lege einen neuen Slice unter src/features/ an:',
+    hint: 'Features duerfen nur aus shared importieren. Sie duerfen nicht aus anderen Features importieren.',
+  },
+  page: {
+    title: 'Eine Seite hinzufuegen',
+    stepCreate: 'Erstelle src/pages/MyPage.vue',
+    stepRegisterPrefix: 'Registriere die Route in src/app/router/routes.ts:',
+    hint: 'Pages komponieren Features und Shared-Primitives. Sie sollten keine Business-Logik enthalten.',
+  },
+  i18n: {
+    title: 'Internationalisierung (vue-i18n)',
+    locationPrefix: 'Locale-Nachrichten liegen in',
+    locationMiddle: 'src/features/*/i18n/ und',
+    locationSuffix: 'src/pages/*/i18n/.',
+    creationPrefix: 'Die Vue-i18n-Instanz wird in src/app/providers/i18n.ts erstellt.',
+    pluralLabel: 'Plural-Beispiel:',
+    pluralDemo: '{count} Teilnehmer | {count} Teilnehmer',
+  },
+  state: {
+    title: 'State Management (Pinia)',
+    registrationPrefix: 'Die Pinia-Instanz wird in src/app/providers/pinia.ts registriert.',
+    storesLabel: 'Stores sollten hier liegen:',
+    featureStateLabel: 'Feature-State',
+    featureStateValue: 'im Feature selbst (model/)',
+    globalStateLabel: 'Globaler App-State',
+    globalStateValue: 'shared/ (selten)',
+  },
+  shared: {
+    title: 'Shared Layer',
+    intro: 'shared/ enthaelt wiederverwendbare Primitives:',
+    ui: 'Design-System-Komponenten',
+    lib: 'wiederverwendbare Utilities (Formatierung, Validierung usw.)',
+    composables: 'generische Composition Functions',
+    i18n: 'Uebersetzungsressourcen',
+    types: 'schichtuebergreifende Typen',
+    hint: 'Shared darf nie von features, pages oder app abhaengen.',
+  },
+  scripts: {
+    title: 'Verfuegbare Skripte',
+    dev: 'Dev-Server starten',
+    build: 'Type-Check + Production-Build',
+    preview: 'Production-Build lokal anzeigen',
+    lint: 'ESLint + Auto-Fix',
+    format: 'Prettier',
+    typecheck: 'vue-tsc',
+  },
 } as const
 
 export default guide

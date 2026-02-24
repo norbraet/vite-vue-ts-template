@@ -8,16 +8,14 @@
   <div class="container guide">
     <h1>{{ t('guide.title') }}</h1>
 
-    <!-- Folder Structure -->
     <section class="card">
-      <h2>Architecture (Feature-Sliced Design)</h2>
-      <p>
-        This template follows
+      <h2>{{ t('guide.architecture.title') }}</h2>
+      <i18n-t keypath="guide.architecture.descriptionRich" tag="p">
         <a href="https://feature-sliced.design/" target="_blank" rel="noopener noreferrer">
           Feature-Sliced Design
         </a>
-        with strict import boundaries enforced by ESLint.
-      </p>
+        <strong>ESLint</strong>
+      </i18n-t>
 
       <pre class="code-block">
 src/
@@ -36,19 +34,14 @@ src/
       >
 
       <p class="hint">
-        Import direction:
-        <code>app</code> → <code>pages</code> → <code>features</code> → <code>shared</code>. Never
-        import upward.
+        {{ t('guide.architecture.importDirectionLabel') }}
+        <code>{{ t('guide.architecture.importDirectionRule') }}</code>
       </p>
     </section>
 
-    <!-- Providers -->
     <section class="card">
-      <h2>Application Providers</h2>
-      <p>
-        Global integrations are initialized inside
-        <code>src/app/providers/</code>.
-      </p>
+      <h2>{{ t('guide.providers.title') }}</h2>
+      <p>{{ t('guide.providers.description') }}</p>
 
       <pre class="code-block">
 app/
@@ -60,13 +53,12 @@ app/
 </pre
       >
 
-      <p><code>main.ts</code> bootstraps the app and calls <code>setupProviders(app)</code>.</p>
+      <p>{{ t('guide.providers.bootstrapNote') }}</p>
     </section>
 
-    <!-- Features -->
     <section class="card">
-      <h2>Adding a Feature</h2>
-      <p>Create a new slice under <code>src/features/</code>:</p>
+      <h2>{{ t('guide.feature.title') }}</h2>
+      <p>{{ t('guide.feature.intro') }}</p>
 
       <pre class="code-block">
 src/features/my-feature/
@@ -78,19 +70,15 @@ src/features/my-feature/
 </pre
       >
 
-      <p class="hint">
-        Features may import from <code>shared</code> only. They must not import from other features.
-      </p>
+      <p class="hint">{{ t('guide.feature.hint') }}</p>
     </section>
 
-    <!-- Pages -->
     <section class="card">
-      <h2>Adding a Page</h2>
+      <h2>{{ t('guide.page.title') }}</h2>
       <ol>
-        <li>Create <code>src/pages/MyPage.vue</code></li>
+        <li>{{ t('guide.page.stepCreate') }}</li>
         <li>
-          Register the route in
-          <code>src/app/router/routes.ts</code>:
+          {{ t('guide.page.stepRegisterPrefix') }}
           <pre class="code-block">
 {
   path: '/my-page',
@@ -102,18 +90,15 @@ src/features/my-feature/
         </li>
       </ol>
 
-      <p class="hint">
-        Pages compose features and shared primitives. They should not contain business logic.
-      </p>
+      <p class="hint">{{ t('guide.page.hint') }}</p>
     </section>
 
-    <!-- i18n -->
     <section class="card">
-      <h2>Internationalization (vue-i18n)</h2>
+      <h2>{{ t('guide.i18n.title') }}</h2>
       <p>
-        Locale messages live in
-        <code>src/shared/i18n/</code>, <code>src/features/*/i18n/</code>, and
-        <code>src/pages/*/i18n/</code>.
+        {{ t('guide.i18n.locationPrefix') }}
+        <code>src/shared/i18n/</code>, <code>{{ t('guide.i18n.locationMiddle') }}</code>
+        <code>{{ t('guide.i18n.locationSuffix') }}</code>
       </p>
 
       <pre class="code-block">
@@ -125,54 +110,56 @@ shared/i18n/
 </pre
       >
 
+      <p>{{ t('guide.i18n.creationPrefix') }}</p>
       <p>
-        The Vue i18n instance is created in
-        <code>src/app/providers/i18n.ts</code>.
+        <strong>{{ t('guide.i18n.pluralLabel') }}</strong>
+        {{ t('guide.i18n.pluralDemo', { count: 1 }, 1) }} /
+        {{ t('guide.i18n.pluralDemo', { count: 5 }, 5) }}
       </p>
     </section>
 
-    <!-- State Management -->
     <section class="card">
-      <h2>State Management (Pinia)</h2>
-      <p>
-        The Pinia instance is registered in
-        <code>src/app/providers/pinia.ts</code>.
-      </p>
+      <h2>{{ t('guide.state.title') }}</h2>
+      <p>{{ t('guide.state.registrationPrefix') }}</p>
 
-      <p>Stores should live:</p>
+      <p>{{ t('guide.state.storesLabel') }}</p>
 
       <ul>
-        <li><strong>Feature state</strong> → inside the feature (<code>model/</code>)</li>
-        <li><strong>Global app state</strong> → <code>shared/</code> (rare)</li>
+        <li>
+          <strong>{{ t('guide.state.featureStateLabel') }}</strong> ->
+          <code>{{ t('guide.state.featureStateValue') }}</code>
+        </li>
+        <li>
+          <strong>{{ t('guide.state.globalStateLabel') }}</strong> ->
+          <code>{{ t('guide.state.globalStateValue') }}</code>
+        </li>
       </ul>
     </section>
 
-    <!-- Shared Layer -->
     <section class="card">
-      <h2>Shared Layer</h2>
-      <p><code>shared/</code> contains reusable primitives:</p>
+      <h2>{{ t('guide.shared.title') }}</h2>
+      <p><code>shared/</code> {{ t('guide.shared.intro') }}</p>
 
       <ul>
-        <li><strong>ui/</strong> — design system components</li>
-        <li><strong>lib/</strong> — reusable utilities (format, validation, etc.)</li>
-        <li><strong>composables/</strong> — generic composition functions</li>
-        <li><strong>i18n/</strong> — translation resources</li>
-        <li><strong>types/</strong> — cross-layer types</li>
+        <li><strong>ui/</strong> - {{ t('guide.shared.ui') }}</li>
+        <li><strong>lib/</strong> - {{ t('guide.shared.lib') }}</li>
+        <li><strong>composables/</strong> - {{ t('guide.shared.composables') }}</li>
+        <li><strong>i18n/</strong> - {{ t('guide.shared.i18n') }}</li>
+        <li><strong>types/</strong> - {{ t('guide.shared.types') }}</li>
       </ul>
 
-      <p class="hint">Shared must never depend on features, pages, or app.</p>
+      <p class="hint">{{ t('guide.shared.hint') }}</p>
     </section>
 
-    <!-- Scripts -->
     <section class="card">
-      <h2>Available Scripts</h2>
+      <h2>{{ t('guide.scripts.title') }}</h2>
       <ul class="scripts">
-        <li><code>pnpm dev</code> — start dev server</li>
-        <li><code>pnpm build</code> — type-check + production build</li>
-        <li><code>pnpm preview</code> — preview production build</li>
-        <li><code>pnpm lint</code> — ESLint + auto-fix</li>
-        <li><code>pnpm format</code> — Prettier</li>
-        <li><code>pnpm typecheck</code> — vue-tsc</li>
+        <li><code>pnpm dev</code> - {{ t('guide.scripts.dev') }}</li>
+        <li><code>pnpm build</code> - {{ t('guide.scripts.build') }}</li>
+        <li><code>pnpm preview</code> - {{ t('guide.scripts.preview') }}</li>
+        <li><code>pnpm lint</code> - {{ t('guide.scripts.lint') }}</li>
+        <li><code>pnpm format</code> - {{ t('guide.scripts.format') }}</li>
+        <li><code>pnpm typecheck</code> - {{ t('guide.scripts.typecheck') }}</li>
       </ul>
     </section>
   </div>
