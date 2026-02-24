@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  import { useAppStore } from '@/shared/stores/useAppStore'
+  import { useThemeStore } from '@/features/theme/model/useThemeStore'
 
-  const appStore = useAppStore()
+  const appStore = useThemeStore()
 </script>
 
 <template>

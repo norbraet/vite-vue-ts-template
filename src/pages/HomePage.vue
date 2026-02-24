@@ -1,10 +1,10 @@
 <script setup lang="ts">
   import { useI18n } from 'vue-i18n'
-  import { THEME_OPTIONS } from '@/shared/constants/app'
-  import { useAppStore } from '@/shared/stores/useAppStore'
+  import { useThemeStore } from '@/features/theme/model/useThemeStore'
+  import { THEME_OPTIONS } from '@/features/theme/config'
 
   const { t } = useI18n()
-  const appStore = useAppStore()
+  const appStore = useThemeStore()
 
   const toggleTheme = () => {
     switch (appStore.theme) {

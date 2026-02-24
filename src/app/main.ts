@@ -1,14 +1,10 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { setupProviders } from '@/app/providers'
 import './styles/global.css'
 import App from './App.vue'
-import router from './router'
-import i18n from './i18n'
 
 const app = createApp(App)
 
-app.use(createPinia())
-app.use(router)
-app.use(i18n)
+setupProviders(app)
 
 app.mount('#app')

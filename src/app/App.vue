@@ -1,11 +1,11 @@
 <script setup lang="ts">
   import { onMounted } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import NotificationToast from '@/shared/components/NotificationToast.vue'
-  import { useAppStore } from '@/shared/stores/useAppStore'
+  import NotificationToast from '@/features/notifications/NotificationToast.vue'
+  import { useThemeStore } from '@/features/theme/model/useThemeStore'
 
   const { t } = useI18n()
-  const appStore = useAppStore()
+  const appStore = useThemeStore()
 
   onMounted(() => {
     appStore.initializeTheme()
