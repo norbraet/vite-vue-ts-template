@@ -32,12 +32,19 @@
     <footer>
       <p>Feature Sliced Design · Vue 3 · TypeScript · Pinia · Vue Router · Vue I18n · Zod</p>
     </footer>
-
-    <NotificationToast />
   </div>
+
+  <NotificationToast />
 </template>
 
 <style scoped>
+  #app {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
   header {
     position: sticky;
     top: 0;
@@ -104,7 +111,6 @@
   }
 
   main {
-    min-height: calc(100vh - 3.5rem - 3rem);
     padding: 3rem 0;
   }
 
