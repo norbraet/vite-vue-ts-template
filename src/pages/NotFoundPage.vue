@@ -32,7 +32,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh - 3.5rem - 3rem);
   }
 
   .error-content {
