@@ -1,0 +1,23 @@
+area/theme:
+  - 'features/theme/**'
+
+area/notifications:
+  - 'features/notifications/**'
+
+area/router:
+  - 'app/router/**'
+
+area/i18n:
+  - 'app/providers/i18n.ts'
+  - 'shared/i18n/**'
+
+area/ci:
+  - '.github/workflows/**'
+
+area/docs:
+  - '**/*.md'
+  - 'docs/**'
+
+area/dependencies:
+  - 'package.json'
+  - 'pnpm-lock.yaml'

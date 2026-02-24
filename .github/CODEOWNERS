@@ -1,0 +1,6 @@
+# Replace placeholders with your GitHub org/team or usernames.
+
+- @norbraet/frontend-maintainers
+
+/.github/ @norbraet/frontend-maintainers
+/src/ @norbraet/frontend-maintainers
