@@ -112,13 +112,15 @@ src/features/my-feature/
       <h2>Internationalization (vue-i18n)</h2>
       <p>
         Locale messages live in
-        <code>src/shared/i18n/locales/</code>.
+        <code>src/shared/i18n/</code>, <code>src/features/*/i18n/</code>, and
+        <code>src/pages/*/i18n/</code>.
       </p>
 
       <pre class="code-block">
 shared/i18n/
-├── locales/
-│   └── en.ts
+├── config/
+├── lib/
+├── model/messages/
 └── types/
 </pre
       >

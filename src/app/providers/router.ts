@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import type { App } from 'vue'
 
 import { routes } from '@/app/router/routes'
+import { i18n } from '@/app/providers/i18n'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -17,7 +18,9 @@ export const router = createRouter({
 
 // Global navigation guard
 router.beforeEach((to, from, next) => {
-  if (to.meta?.title) {
+  if (to.meta?.titleKey) {
+    document.title = i18n.global.t(String(to.meta.titleKey))
+  } else if (to.meta?.title) {
     document.title = String(to.meta.title)
   }
 

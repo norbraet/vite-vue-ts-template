@@ -6,7 +6,7 @@ export const routes: RouteRecordRaw[] = [
     name: 'home',
     component: () => import('@/pages/HomePage.vue'),
     meta: {
-      title: 'Home',
+      titleKey: 'home.meta.title',
     },
   },
   {
@@ -14,7 +14,7 @@ export const routes: RouteRecordRaw[] = [
     name: 'guide',
     component: () => import('@/pages/GuidePage.vue'),
     meta: {
-      title: 'Guide',
+      titleKey: 'guide.meta.title',
     },
   },
   {
@@ -22,7 +22,7 @@ export const routes: RouteRecordRaw[] = [
     name: 'not-found',
     component: () => import('@/pages/NotFoundPage.vue'),
     meta: {
-      title: 'Page Not Found',
+      titleKey: 'notFound.meta.title',
     },
   },
 ]

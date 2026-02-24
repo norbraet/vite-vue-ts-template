@@ -6,20 +6,34 @@
   const { t } = useI18n()
   const appStore = useThemeStore()
 
+  const getThemeLabel = (theme: string) => t(`theme.options.${theme}`)
+
   const toggleTheme = () => {
     switch (appStore.theme) {
-      case 'dark':
+      case 'dark': {
         appStore.setTheme(THEME_OPTIONS.LIGHT)
-        appStore.addNotification(`Switched to ${THEME_OPTIONS.LIGHT} theme`, 'info')
+        appStore.addNotification(
+          t('theme.switchedTo', { theme: getThemeLabel(THEME_OPTIONS.LIGHT) }),
+          'info'
+        )
         break
-      case 'light':
+      }
+      case 'light': {
         appStore.setTheme(THEME_OPTIONS.SYSTEM)
-        appStore.addNotification(`Switched to ${THEME_OPTIONS.SYSTEM} theme`, 'info')
+        appStore.addNotification(
+          t('theme.switchedTo', { theme: getThemeLabel(THEME_OPTIONS.SYSTEM) }),
+          'info'
+        )
         break
-      case 'system':
+      }
+      case 'system': {
         appStore.setTheme(THEME_OPTIONS.DARK)
-        appStore.addNotification(`Switched to ${THEME_OPTIONS.DARK} theme`, 'info')
+        appStore.addNotification(
+          t('theme.switchedTo', { theme: getThemeLabel(THEME_OPTIONS.DARK) }),
+          'info'
+        )
         break
+      }
     }
   }
 
@@ -87,13 +101,13 @@
       <div class="hero-actions">
         <router-link to="/guide" class="btn-primary">{{ t('home.viewGuide') }}</router-link>
         <button @click="toggleTheme">
-          {{ t('home.themeToggle', { theme: appStore.theme }) }}
+          {{ t('theme.currentLabel', { theme: t(`theme.options.${appStore.theme}`) }) }}
         </button>
       </div>
     </section>
 
     <section class="stack card">
-      <h2>What's included</h2>
+      <h2>{{ t('home.stackTitle') }}</h2>
       <div class="badge-grid">
         <a
           v-for="tool in stack"

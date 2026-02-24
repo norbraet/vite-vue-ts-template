@@ -16,7 +16,7 @@
   <div id="app">
     <header>
       <nav class="main-header">
-        <router-link to="/" class="logo">Vue 3 Template</router-link>
+        <router-link to="/" class="logo">{{ t('common.appName') }}</router-link>
 
         <div class="nav-links">
           <router-link to="/" class="nav-link">{{ t('nav.home') }}</router-link>
@@ -30,7 +30,7 @@
     </main>
 
     <footer>
-      <p>Feature Sliced Design · Vue 3 · TypeScript · Pinia · Vue Router · Vue I18n · Zod</p>
+      <p>{{ t('common.footerStack') }}</p>
     </footer>
   </div>
 
