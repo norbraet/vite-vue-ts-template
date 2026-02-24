@@ -4,25 +4,25 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/pages/HomePage.vue'),
+    component: () => import('@/pages/home/HomePage.vue'),
     meta: {
-      title: 'Home',
+      titleKey: 'home.meta.title',
     },
   },
   {
     path: '/guide',
     name: 'guide',
-    component: () => import('@/pages/GuidePage.vue'),
+    component: () => import('@/pages/guide/GuidePage.vue'),
     meta: {
-      title: 'Guide',
+      titleKey: 'guide.meta.title',
     },
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: () => import('@/pages/NotFoundPage.vue'),
+    component: () => import('@/pages/not-found/NotFoundPage.vue'),
     meta: {
-      title: 'Page Not Found',
+      titleKey: 'notFound.meta.title',
     },
   },
 ]

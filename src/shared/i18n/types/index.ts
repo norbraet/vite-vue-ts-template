@@ -1,3 +1,5 @@
-import type en from '@/shared/i18n/locales/en'
+import type { Locale } from '@/shared/i18n/config/locales'
+import type { MessageSchema } from '@/shared/i18n/types/messages'
 
-export type MessageSchema = typeof en
+export type { MessageSchema }
+export type { Locale }

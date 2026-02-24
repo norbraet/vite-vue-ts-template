@@ -1,0 +1,67 @@
+const guide = {
+  title: 'How to Use This Template',
+  meta: {
+    title: 'Guide',
+  },
+  architecture: {
+    title: 'Architecture (Feature-Sliced Design)',
+    descriptionRich: 'This template follows {0} with strict import boundaries enforced by {1}.',
+    importDirectionLabel: 'Import direction:',
+    importDirectionRule: 'app -> pages -> features -> shared. Never import upward.',
+  },
+  providers: {
+    title: 'Application Providers',
+    description: 'Global integrations are initialized inside src/app/providers/.',
+    bootstrapNote: 'main.ts bootstraps the app and calls setupProviders(app).',
+  },
+  feature: {
+    title: 'Adding a Feature',
+    intro: 'Create a new slice under src/features/:',
+    hint: 'Features may import from shared only. They must not import from other features.',
+  },
+  page: {
+    title: 'Adding a Page',
+    stepCreate: 'Create src/pages/MyPage.vue',
+    stepRegisterPrefix: 'Register the route in src/app/router/routes.ts:',
+    hint: 'Pages compose features and shared primitives. They should not contain business logic.',
+  },
+  i18n: {
+    title: 'Internationalization (vue-i18n)',
+    locationPrefix: 'Locale messages live in',
+    locationMiddle: 'src/features/*/i18n/, and',
+    locationSuffix: 'src/pages/*/i18n/.',
+    creationPrefix: 'The Vue i18n instance is created in src/app/providers/i18n.ts.',
+    pluralLabel: 'Plural example:',
+    pluralDemo: '{count} participant | {count} participants',
+  },
+  state: {
+    title: 'State Management (Pinia)',
+    registrationPrefix: 'The Pinia instance is registered in src/app/providers/pinia.ts.',
+    storesLabel: 'Stores should live:',
+    featureStateLabel: 'Feature state',
+    featureStateValue: 'inside the feature (model/)',
+    globalStateLabel: 'Global app state',
+    globalStateValue: 'shared/ (rare)',
+  },
+  shared: {
+    title: 'Shared Layer',
+    intro: 'shared/ contains reusable primitives:',
+    ui: 'design system components',
+    lib: 'reusable utilities (format, validation, etc.)',
+    composables: 'generic composition functions',
+    i18n: 'translation resources',
+    types: 'cross-layer types',
+    hint: 'Shared must never depend on features, pages, or app.',
+  },
+  scripts: {
+    title: 'Available Scripts',
+    dev: 'start dev server',
+    build: 'type-check + production build',
+    preview: 'preview production build',
+    lint: 'ESLint + auto-fix',
+    format: 'Prettier',
+    typecheck: 'vue-tsc',
+  },
+} as const
+
+export default guide

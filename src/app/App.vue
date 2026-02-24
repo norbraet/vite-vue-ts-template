@@ -2,6 +2,7 @@
   import { onMounted } from 'vue'
   import { useI18n } from 'vue-i18n'
   import NotificationToast from '@/features/notifications/NotificationToast.vue'
+  import LanguageSelector from '@/features/language-selector/ui/LanguageSelector.vue'
   import { useThemeStore } from '@/features/theme/model/useThemeStore'
 
   const { t } = useI18n()
@@ -16,11 +17,15 @@
   <div id="app">
     <header>
       <nav class="main-header">
-        <router-link to="/" class="logo">Vue 3 Template</router-link>
+        <router-link to="/" class="logo">{{ t('common.appName') }}</router-link>
 
-        <div class="nav-links">
-          <router-link to="/" class="nav-link">{{ t('nav.home') }}</router-link>
-          <router-link to="/guide" class="nav-link">{{ t('nav.guide') }}</router-link>
+        <div class="header-actions">
+          <div class="nav-links">
+            <router-link to="/" class="nav-link">{{ t('nav.home') }}</router-link>
+            <router-link to="/guide" class="nav-link">{{ t('nav.guide') }}</router-link>
+          </div>
+
+          <LanguageSelector />
         </div>
       </nav>
     </header>
@@ -30,7 +35,7 @@
     </main>
 
     <footer>
-      <p>Feature Sliced Design · Vue 3 · TypeScript · Pinia · Vue Router · Vue I18n · Zod</p>
+      <p>{{ t('common.footerStack') }}</p>
     </footer>
   </div>
 
@@ -63,6 +68,7 @@
     margin: 0 auto;
     padding: 0 1.5rem;
     height: 3.5rem;
+    gap: 1rem;
   }
 
   .logo {
@@ -75,10 +81,17 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     transition: opacity 0.15s ease;
+    flex-shrink: 0;
   }
 
   .logo:hover {
     opacity: 0.75;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .nav-links {
@@ -128,13 +141,19 @@
     text-align: center;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     .main-header {
       padding: 0 1rem;
+      height: auto;
+      min-height: 3.5rem;
+      flex-wrap: wrap;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
     }
 
-    .logo {
-      font-size: 0.875rem;
+    .header-actions {
+      width: 100%;
+      justify-content: space-between;
     }
 
     .nav-link {

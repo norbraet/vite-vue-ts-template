@@ -1,7 +1,9 @@
 <script setup lang="ts">
+  import { useI18n } from 'vue-i18n'
   import { useRouter } from 'vue-router'
 
   const router = useRouter()
+  const { t } = useI18n()
 
   const goHome = () => {
     router.push('/')
@@ -16,12 +18,12 @@
   <div class="container not-found">
     <div class="error-content">
       <h1>404</h1>
-      <h2>Page Not Found</h2>
-      <p>The page you're looking for doesn't exist or has been moved.</p>
+      <h2>{{ t('notFound.title') }}</h2>
+      <p>{{ t('notFound.description') }}</p>
 
       <div class="actions">
-        <button class="btn-primary" @click="goHome">Go Home</button>
-        <button @click="goBack">Go Back</button>
+        <button class="btn-primary" @click="goHome">{{ t('notFound.goHome') }}</button>
+        <button @click="goBack">{{ t('notFound.goBack') }}</button>
       </div>
     </div>
   </div>

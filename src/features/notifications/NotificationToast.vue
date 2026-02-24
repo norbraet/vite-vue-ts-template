@@ -1,7 +1,9 @@
 <script setup lang="ts">
+  import { useI18n } from 'vue-i18n'
   import { useThemeStore } from '@/features/theme/model/useThemeStore'
 
   const appStore = useThemeStore()
+  const { t } = useI18n()
 </script>
 
 <template>
@@ -28,7 +30,7 @@
         </div>
         <button
           class="notification-close"
-          aria-label="Close notification"
+          :aria-label="t('notifications.close')"
           @click="appStore.removeNotification(notification.id)"
         >
           ×
