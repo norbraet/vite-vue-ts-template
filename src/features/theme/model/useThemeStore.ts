@@ -1,14 +1,14 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { STORAGE_KEYS, THEME_OPTIONS } from '@/shared/constants/app'
-import { isTheme } from '@/shared/services/themeService'
-import type { Theme } from '@/shared/types/common'
+import { isTheme } from '@/features/theme/lib/themeService'
+import type { Theme } from '@/features/theme/types'
+import { STORAGE_KEYS, THEME_OPTIONS } from '@/features/theme/config'
 
 /**
  * Global app store for app-wide state
  * This is shared across all features
  */
-export const useAppStore = defineStore('app', () => {
+export const useThemeStore = defineStore('app', () => {
   const theme = ref<Theme>(THEME_OPTIONS.SYSTEM)
   const isLoading = ref(false)
   const notifications = ref<Array<{ id: string; message: string; type: string }>>([])

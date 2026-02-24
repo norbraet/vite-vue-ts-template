@@ -1,7 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 
-const routes: RouteRecordRaw[] = [
+export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
@@ -19,7 +18,6 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
-    // Catch-all route for 404
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/pages/NotFoundPage.vue'),
@@ -28,25 +26,3 @@ const routes: RouteRecordRaw[] = [
     },
   },
 ]
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0 }
-    }
-  },
-})
-
-router.beforeEach((to, from, next) => {
-  if (to.meta?.title) {
-    document.title = `${to.meta.title}`
-  }
-
-  next()
-})
-
-export default router

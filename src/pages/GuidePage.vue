@@ -8,127 +8,170 @@
   <div class="container guide">
     <h1>{{ t('guide.title') }}</h1>
 
+    <!-- Folder Structure -->
     <section class="card">
-      <h2>Folder Structure</h2>
+      <h2>Architecture (Feature-Sliced Design)</h2>
       <p>
         This template follows
-        <a href="https://feature-sliced.design/" target="_blank" rel="noopener noreferrer"
-          >Feature Sliced Design</a
-        >
+        <a href="https://feature-sliced.design/" target="_blank" rel="noopener noreferrer">
+          Feature-Sliced Design
+        </a>
         with strict import boundaries enforced by ESLint.
       </p>
+
       <pre class="code-block">
 src/
-├── app/        # Bootstrap: router, i18n, global styles, store init
-├── pages/      # Route-level components — compose features + shared
-├── features/   # Isolated business slices — import from shared only
-└── shared/     # Reusable across the whole app
-    ├── components/
+├── app/        # Bootstrap layer (providers, router, global styles)
+│   ├── providers/
+│   └── router/
+├── pages/      # Route-level composition (no business logic)
+├── features/   # Isolated business slices
+└── shared/     # Reusable primitives & resources
+    ├── ui/
     ├── composables/
-    ├── constants/
-    ├── locales/
-    ├── stores/
-    ├── types/
-    └── utils/</pre
+    ├── lib/
+    ├── i18n/
+    └── types/
+</pre
       >
+
       <p class="hint">
-        Import direction: <code>app</code> → <code>pages</code> → <code>features</code> →
-        <code>shared</code>. Never import upward.
+        Import direction:
+        <code>app</code> → <code>pages</code> → <code>features</code> → <code>shared</code>. Never
+        import upward.
       </p>
     </section>
 
+    <!-- Providers -->
+    <section class="card">
+      <h2>Application Providers</h2>
+      <p>
+        Global integrations are initialized inside
+        <code>src/app/providers/</code>.
+      </p>
+
+      <pre class="code-block">
+app/
+└── providers/
+    ├── router.ts   # Vue Router instance + guards
+    ├── i18n.ts     # vue-i18n setup
+    ├── pinia.ts    # Pinia instance
+    └── index.ts    # setupProviders(app)
+</pre
+      >
+
+      <p><code>main.ts</code> bootstraps the app and calls <code>setupProviders(app)</code>.</p>
+    </section>
+
+    <!-- Features -->
     <section class="card">
       <h2>Adding a Feature</h2>
-      <p>Create a new directory under <code>src/features/</code> with this structure:</p>
+      <p>Create a new slice under <code>src/features/</code>:</p>
+
       <pre class="code-block">
 src/features/my-feature/
-├── components/     # Vue components (internal to the feature)
-├── composables/    # Composition functions
-├── stores/         # Pinia store(s)
-├── types/          # TypeScript interfaces & types
-└── index.ts        # Public API — export only what pages need</pre
+├── model/      # Pinia stores
+├── lib/        # Internal utilities
+├── config/     # Feature-specific constants
+├── types/      # Types & interfaces
+└── ui/         # (optional) feature UI components
+</pre
       >
+
       <p class="hint">
-        Only export through <code>index.ts</code>. Pages import from
-        <code>@/features/my-feature</code>, never from deep paths.
+        Features may import from <code>shared</code> only. They must not import from other features.
       </p>
     </section>
 
+    <!-- Pages -->
     <section class="card">
       <h2>Adding a Page</h2>
       <ol>
         <li>Create <code>src/pages/MyPage.vue</code></li>
         <li>
-          Add a route in <code>src/app/router/index.ts</code>:
+          Register the route in
+          <code>src/app/router/routes.ts</code>:
           <pre class="code-block">
-{ path: '/my-page', name: 'my-page', component: () => import('@/pages/MyPage.vue') }</pre
+{
+  path: '/my-page',
+  name: 'my-page',
+  component: () => import('@/pages/MyPage.vue')
+}
+</pre
           >
         </li>
-        <li>Add the route constant to <code>src/shared/constants/app.ts</code></li>
       </ol>
+
+      <p class="hint">
+        Pages compose features and shared primitives. They should not contain business logic.
+      </p>
     </section>
 
+    <!-- i18n -->
     <section class="card">
       <h2>Internationalization (vue-i18n)</h2>
-      <p>Add messages to <code>src/shared/locales/en.ts</code>, then use in any component:</p>
-      <pre class="code-block">
-import { useI18n } from 'vue-i18n'
-
-const { t } = useI18n()
-// template: {{ t('nav.home') }}</pre
-      >
       <p>
-        To add a language, create <code>src/shared/locales/de.ts</code> and register it in
-        <code>src/app/i18n/index.ts</code>.
+        Locale messages live in
+        <code>src/shared/i18n/locales/</code>.
+      </p>
+
+      <pre class="code-block">
+shared/i18n/
+├── locales/
+│   └── en.ts
+└── types/
+</pre
+      >
+
+      <p>
+        The Vue i18n instance is created in
+        <code>src/app/providers/i18n.ts</code>.
       </p>
     </section>
 
+    <!-- State Management -->
     <section class="card">
-      <h2>Validation (Zod)</h2>
+      <h2>State Management (Pinia)</h2>
       <p>
-        Schemas live in <code>src/shared/service/validation.ts</code> (reusable primitives) or
-        inside a feature:
+        The Pinia instance is registered in
+        <code>src/app/providers/pinia.ts</code>.
       </p>
-      <pre class="code-block">
-import { z } from 'zod'
 
-const loginSchema = z.object({
-  email: z.email(),
-  password: z.string().min(8),
-})
+      <p>Stores should live:</p>
 
-type LoginPayload = z.infer&lt;typeof loginSchema&gt;
-
-const result = loginSchema.safeParse(formData)
-if (!result.success) { /* result.error.issues */ }</pre
-      >
+      <ul>
+        <li><strong>Feature state</strong> → inside the feature (<code>model/</code>)</li>
+        <li><strong>Global app state</strong> → <code>shared/</code> (rare)</li>
+      </ul>
     </section>
 
+    <!-- Shared Layer -->
+    <section class="card">
+      <h2>Shared Layer</h2>
+      <p><code>shared/</code> contains reusable primitives:</p>
+
+      <ul>
+        <li><strong>ui/</strong> — design system components</li>
+        <li><strong>lib/</strong> — reusable utilities (format, validation, etc.)</li>
+        <li><strong>composables/</strong> — generic composition functions</li>
+        <li><strong>i18n/</strong> — translation resources</li>
+        <li><strong>types/</strong> — cross-layer types</li>
+      </ul>
+
+      <p class="hint">Shared must never depend on features, pages, or app.</p>
+    </section>
+
+    <!-- Scripts -->
     <section class="card">
       <h2>Available Scripts</h2>
       <ul class="scripts">
         <li><code>pnpm dev</code> — start dev server</li>
-        <li><code>pnpm build</code> — type-check + build for production</li>
-        <li><code>pnpm preview</code> — preview the production build</li>
-        <li><code>pnpm lint</code> — lint + auto-fix</li>
-        <li><code>pnpm format</code> — format with Prettier</li>
-        <li><code>pnpm typecheck</code> — run <code>vue-tsc</code> without emitting</li>
-        <li><code>pnpm hooks:install</code> — install Lefthook Git hooks</li>
+        <li><code>pnpm build</code> — type-check + production build</li>
+        <li><code>pnpm preview</code> — preview production build</li>
+        <li><code>pnpm lint</code> — ESLint + auto-fix</li>
+        <li><code>pnpm format</code> — Prettier</li>
+        <li><code>pnpm typecheck</code> — vue-tsc</li>
       </ul>
-    </section>
-
-    <section class="card">
-      <h2>Git Hooks (Lefthook)</h2>
-      <p>Hooks are configured in <code>lefthook.yml</code> and run automatically:</p>
-      <ul>
-        <li><strong>pre-commit</strong> — Prettier check on staged files</li>
-        <li><strong>commit-msg</strong> — Conventional Commits format enforced</li>
-        <li><strong>pre-push</strong> — ESLint + TypeScript check</li>
-        <li><strong>post-checkout / post-merge</strong> — auto <code>pnpm install</code></li>
-      </ul>
-      <p class="hint">
-        Use <code>.lefthook-local.yml</code> to override hooks locally (not committed).
-      </p>
     </section>
   </div>
 </template>

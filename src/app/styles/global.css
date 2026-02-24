@@ -2,4 +2,4 @@
 
 @import './reset.css';
 @import './base.css';
-@import '../../shared/styles/components.css';
+@import './components.css';
