@@ -90,6 +90,14 @@
       label: 'Commitlint',
       link: 'https://commitlint.js.org/',
     },
+    {
+      label: 'Vitest',
+      link: 'https://vitest.dev/',
+    },
+    {
+      label: 'Vue Test Utils',
+      link: 'https://test-utils.vuejs.org/',
+    },
   ]
 </script>
 

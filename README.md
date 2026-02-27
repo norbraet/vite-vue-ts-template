@@ -12,9 +12,10 @@ A modern, opinionated template for Vue 3 applications with TypeScript, featuring
 - **Feature-Sliced Design (FSD)** with ESLint boundaries
 - **ESLint + Prettier** for code quality & formatting
 - **Lefthook** Git hooks with Conventional Commits enforcement
+- **Vitest + Vue Test Utils** for unit and component testing
 - **Path aliases** for clean imports
 - **pnpm** for efficient dependency management
-- Fully **automation-ready**: lint/typecheck/PR checks
+- Fully **automation-ready**: format/lint/typecheck/test/PR checks
 
 ---
 
@@ -87,19 +88,21 @@ import { useAuth } from '@/features/auth/composables/useAuth' // different featu
 
 ## Available Script
 
-| Script                  | Description                |
-| ----------------------- | -------------------------- |
-| `pnpm dev`              | Start dev server           |
-| `pnpm build`            | Build production           |
-| `pnpm preview`          | Preview production build   |
-| `pnpm lint`             | Lint & fix                 |
-| `pnpm lint:check`       | Lint without fixing        |
-| `pnpm format`           | Prettier formatting        |
-| `pnpm format:check`     | Check formatting           |
-| `pnpm lint:format`      | Lint + Prettier            |
-| `pnpm hooks:installnpm` | Install Lefthook Git hooks |
-| `pnpm hooks:uninstall`  | Uninstall Git hooks        |
-| `pnpm typecheck`        | Type checking              |
+| Script                 | Description                         |
+| ---------------------- | ----------------------------------- |
+| `pnpm dev`             | Start dev server                    |
+| `pnpm build`           | Build production                    |
+| `pnpm preview`         | Preview production build            |
+| `pnpm lint`            | ESLint with auto-fix                |
+| `pnpm lint:check`      | ESLint without fixing               |
+| `pnpm format`          | Prettier format                     |
+| `pnpm format:check`    | Check formatting                    |
+| `pnpm typecheck`       | vue-tsc type checking               |
+| `pnpm test`            | Vitest in watch mode                |
+| `pnpm test:run`        | Vitest single run (CI)              |
+| `pnpm test:coverage`   | Vitest single run + coverage report |
+| `pnpm hooks:install`   | Install Lefthook Git hooks          |
+| `pnpm hooks:uninstall` | Uninstall Git hooks                 |
 
 ## GitHub Automation & Workflow
 
@@ -121,7 +124,7 @@ PRs should follow `.github/pull_request_template.md`:
 
 ### CI Workflow
 
-- `.github/workflows/ci.yml` runs lint + typecheck on PRs automatically
+- `.github/workflows/ci.yml` runs format, lint, typecheck, and unit tests on PRs automatically
 
 ---
 

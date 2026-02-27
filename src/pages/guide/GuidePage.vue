@@ -160,6 +160,9 @@ shared/i18n/
         <li><code>pnpm lint</code> - {{ t('guide.scripts.lint') }}</li>
         <li><code>pnpm format</code> - {{ t('guide.scripts.format') }}</li>
         <li><code>pnpm typecheck</code> - {{ t('guide.scripts.typecheck') }}</li>
+        <li><code>pnpm test</code> - {{ t('guide.scripts.test') }}</li>
+        <li><code>pnpm test:run</code> - {{ t('guide.scripts.testRun') }}</li>
+        <li><code>pnpm test:coverage</code> - {{ t('guide.scripts.testCoverage') }}</li>
       </ul>
     </section>
   </div>

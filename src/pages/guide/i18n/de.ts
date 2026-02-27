@@ -61,6 +61,9 @@ const guide = {
     lint: 'ESLint + Auto-Fix',
     format: 'Prettier',
     typecheck: 'vue-tsc',
+    test: 'Vitest im Watch-Modus',
+    testRun: 'Vitest einmaliger Durchlauf (CI)',
+    testCoverage: 'Vitest einmaliger Durchlauf + V8-Coverage-Report',
   },
 } as const
 
