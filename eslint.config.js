@@ -187,12 +187,19 @@ export default [
     },
   },
 
-  // The app entry point is the composition root — it wires all layers together
-  // and is exempt from layer-boundary import checks.
   {
     files: ['src/app/main.ts'],
     rules: {
       'boundaries/no-unknown': 'off',
+    },
+  },
+
+  {
+    files: ['**/*.{test,spec}.{ts,tsx,vue}', 'src/test/**/*.ts'],
+    rules: {
+      'boundaries/element-types': 'off',
+      'boundaries/no-unknown': 'off',
+      'boundaries/no-unknown-files': 'off',
     },
   },
 

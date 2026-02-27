@@ -41,6 +41,10 @@ pre-push:
       run: pnpm typecheck
       fail_text: '❌ TypeScript type checking failed. Please fix type errors and try again.'
 
+    test:
+      run: pnpm test:run
+      fail_text: '❌ Tests failed. Fix failing tests and try again.'
+
 post-checkout:
   commands:
     pnpm-install:
