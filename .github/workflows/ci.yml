@@ -15,8 +15,29 @@ permissions:
   contents: read
 
 jobs:
-  lint:
+  setup:
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    outputs:
+      cache-hit: ${{ steps.pnpm-cache.outputs.cache-hit }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        id: pnpm-cache
+        run: pnpm install --frozen-lockfile --prefer-offline
+
+  lint:
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,13 +48,11 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Run lint
-        run: pnpm lint:check
+      - run: pnpm install --frozen-lockfile --prefer-offline
+      - run: pnpm lint:check
 
   typecheck:
-    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -44,13 +63,33 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Run typecheck
-        run: pnpm typecheck
+      - run: pnpm install --frozen-lockfile --prefer-offline
+      - run: pnpm typecheck
+
+  unit-tests:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Run Unit tests
+        run: pnpm test:run -- --coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage
 
   build:
-    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    needs: [lint, typecheck, unit-tests]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -61,7 +100,5 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Run build
-        run: pnpm build
+      - run: pnpm install --frozen-lockfile --prefer-offline
+      - run: pnpm build
