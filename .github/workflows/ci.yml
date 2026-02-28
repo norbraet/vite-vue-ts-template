@@ -30,8 +30,10 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - run: pnpm install --frozen-lockfile --prefer-offline
-      - run: pnpm format:check
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Check code formatting
+        run: pnpm format:check
 
   lint:
     runs-on: ubuntu-latest
@@ -45,8 +47,10 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - run: pnpm install --frozen-lockfile --prefer-offline
-      - run: pnpm lint:check
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Check code linting
+        run: pnpm lint:check
 
   typecheck:
     runs-on: ubuntu-latest
@@ -60,8 +64,10 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - run: pnpm install --frozen-lockfile --prefer-offline
-      - run: pnpm typecheck
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Run type checking
+        run: pnpm typecheck
 
   unit-tests:
     runs-on: ubuntu-latest
@@ -75,8 +81,10 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - run: pnpm install --frozen-lockfile --prefer-offline
-      - run: pnpm test:coverage
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Run unit tests with coverage
+        run: pnpm test:coverage
       - uses: actions/upload-artifact@v4
         with:
           name: coverage-report
@@ -95,5 +103,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - run: pnpm install --frozen-lockfile --prefer-offline
-      - run: pnpm build
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Build the project
+        run: pnpm build
