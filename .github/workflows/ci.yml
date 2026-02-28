@@ -90,8 +90,34 @@ jobs:
           name: coverage-report
           path: coverage
 
+  e2e-tests:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+      - name: Run Playwright tests
+        run: pnpm test:e2e
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
   build:
-    needs: [format, lint, typecheck, unit-tests]
+    needs: [format, lint, typecheck, unit-tests, e2e-tests]
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     steps:
