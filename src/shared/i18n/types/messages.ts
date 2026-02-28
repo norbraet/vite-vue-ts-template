@@ -79,6 +79,9 @@ export interface MessageSchema {
       lint: string
       format: string
       typecheck: string
+      test: string
+      testRun: string
+      testCoverage: string
     }
   }
   notFound: {

@@ -3,8 +3,9 @@ pre-commit:
   commands:
     prettier:
       glob: '*.{js,mjs,ts,vue,json,md,yml,yaml,css,scss,html}'
-      run: pnpm format:check:staged {staged_files}
+      run: pnpm format:check:staged "{staged_files}"
       fail_text: '❌ Code formatting issues found. Run "pnpm format" to fix them and commit again.'
+      skip_empty: true
 
     forbidden-branches:
       run: |
@@ -13,6 +14,12 @@ pre-commit:
           echo "❌ Direct commits to $BRANCH branch are forbidden!"
           exit 1
         fi
+
+    eslint:
+      glob: '*.{js,mjs,ts,vue}'
+      run: pnpm lint:staged "{staged_files}"
+      fail_text: '❌ ESLint found issues. Run "pnpm lint:fix" to fix them and push again.'
+      skip_empty: true
 
 commit-msg:
   commands:
@@ -32,14 +39,13 @@ pre-push:
           exit 1
         fi
 
-    eslint:
-      glob: '*.{js,mjs,ts,vue}'
-      run: pnpm lint:staged {staged_files}
-      fail_text: '❌ ESLint found issues. Run "pnpm lint:fix" to fix them and push again.'
-
     typecheck:
       run: pnpm typecheck
       fail_text: '❌ TypeScript type checking failed. Please fix type errors and try again.'
+
+    test:
+      run: pnpm test:run
+      fail_text: '❌ Tests failed. Fix failing tests and try again.'
 
 post-checkout:
   commands:

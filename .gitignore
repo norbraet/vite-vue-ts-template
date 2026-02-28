@@ -25,3 +25,10 @@ dist-ssr
 
 # Lefthook
 .lefthook*
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
