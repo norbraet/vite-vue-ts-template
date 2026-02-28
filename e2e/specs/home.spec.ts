@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures'
+import { test, expect } from '../index'
 
 test.describe('Home page', () => {
   test('hero heading is visible', async ({ homePage }) => {

@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures'
+import { test, expect } from '../index'
 
 test.describe('Navigation', () => {
   test('home page loads at root URL', async ({ homePage }) => {

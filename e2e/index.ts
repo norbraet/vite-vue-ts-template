@@ -1,7 +1,7 @@
 import { test as base } from '@playwright/test'
-import HomePage from './pages/HomePage'
-import GuidePage from './pages/GuidePage'
-import NotFoundPage from './pages/NotFoundPage'
+import { HomePage } from './pages/HomePage'
+import { GuidePage } from './pages/GuidePage'
+import { NotFoundPage } from './pages/NotFoundPage'
 
 type E2EFixtures = {
   homePage: HomePage

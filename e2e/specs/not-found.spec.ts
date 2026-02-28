@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures'
+import { test, expect } from '../index'
 
 test.describe('Not Found (404) page', () => {
   test('shows "404" error code for unknown routes', async ({ notFoundPage }) => {

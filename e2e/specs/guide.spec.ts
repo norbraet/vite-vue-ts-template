@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures'
+import { test, expect } from '../index'
 
 test.describe('Guide page', () => {
   test('guide heading is visible', async ({ guidePage }) => {
@@ -10,7 +10,7 @@ test.describe('Guide page', () => {
   })
 
   test('scripts section is visible', async ({ guidePage }) => {
-    await expect(guidePage.scriptsSection).toBeVisible()
+    await expect(guidePage.scriptSection).toBeVisible()
   })
 
   test('page URL is /guide', async ({ guidePage }) => {
