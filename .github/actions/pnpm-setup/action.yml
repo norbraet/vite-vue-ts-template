@@ -1,5 +1,5 @@
 name: Setup Node and pnpm
-description: Checkout repository, setup pnpm and Node.js, then install dependencies with pnpm.
+description: Setup pnpm and Node.js, then install dependencies with pnpm.
 inputs:
   node-version:
     description: Node.js version to use.
@@ -14,7 +14,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4
     - uses: pnpm/action-setup@v4
       with:
         version: ${{ inputs.pnpm-version }}
