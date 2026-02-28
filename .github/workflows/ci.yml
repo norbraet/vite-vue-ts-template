@@ -22,16 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-      - uses: actions/setup-node@v4
+      - uses: ./.github/actions/pnpm-setup
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --prefer-offline
+          pnpm-version: ${{ env.PNPM_VERSION }}
       - name: Check code formatting
         run: pnpm format:check
 
@@ -39,16 +33,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-      - uses: actions/setup-node@v4
+      - uses: ./.github/actions/pnpm-setup
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --prefer-offline
+          pnpm-version: ${{ env.PNPM_VERSION }}
       - name: Check code linting
         run: pnpm lint:check
 
@@ -56,16 +44,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-      - uses: actions/setup-node@v4
+      - uses: ./.github/actions/pnpm-setup
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --prefer-offline
+          pnpm-version: ${{ env.PNPM_VERSION }}
       - name: Run type checking
         run: pnpm typecheck
 
@@ -73,19 +55,14 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-      - uses: actions/setup-node@v4
+      - uses: ./.github/actions/pnpm-setup
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --prefer-offline
+          pnpm-version: ${{ env.PNPM_VERSION }}
       - name: Run unit tests with coverage
         run: pnpm test:coverage
       - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
         with:
           name: coverage-report
           path: coverage
@@ -95,16 +72,17 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-      - uses: actions/setup-node@v4
+      - uses: ./.github/actions/pnpm-setup
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --prefer-offline
+          pnpm-version: ${{ env.PNPM_VERSION }}
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
       - name: Run Playwright tests
@@ -121,15 +99,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-      - uses: actions/setup-node@v4
+      - uses: ./.github/actions/pnpm-setup
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --prefer-offline
+          pnpm-version: ${{ env.PNPM_VERSION }}
       - name: Build the project
         run: pnpm build
