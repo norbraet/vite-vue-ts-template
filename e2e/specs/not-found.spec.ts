@@ -11,6 +11,6 @@ test.describe('Not Found (404) page', () => {
   })
 
   test('unknown URL is preserved in the address bar', async ({ notFoundPage }) => {
-    await expect(notFoundPage.page).toHaveURL('/this-page-does-not-exist')
+    await expect(notFoundPage.page).toHaveURL('/non-existent-page')
   })
 })
