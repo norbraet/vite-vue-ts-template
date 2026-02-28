@@ -195,7 +195,12 @@ export default [
   },
 
   {
-    files: ['**/*.{test,spec}.{ts,tsx,vue}', 'src/test/**/*.ts'],
+    files: [
+      '**/*.{test,spec}.{ts,tsx,vue}',
+      'src/test/**/*.ts',
+      'e2e/**/*.ts',
+      'playwright.config.ts',
+    ],
     rules: {
       'boundaries/element-types': 'off',
       'boundaries/no-unknown': 'off',
