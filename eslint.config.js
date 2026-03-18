@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from 'eslint-plugin-storybook'
+
 import js from '@eslint/js'
 import typescript from '@typescript-eslint/eslint-plugin'
 import typescriptParser from '@typescript-eslint/parser'
@@ -11,10 +14,8 @@ export default [
   {
     ignores: ['**/node_modules/**', '**/dist/**', '**/build/**', '**/.vite/**', '**/coverage/**'],
   },
-
   js.configs.recommended,
   ...vue.configs['flat/recommended'],
-
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
     languageOptions: {
@@ -98,7 +99,6 @@ export default [
       ],
     },
   },
-
   {
     files: ['**/*.vue'],
     languageOptions: {
@@ -186,17 +186,16 @@ export default [
       ],
     },
   },
-
   {
     files: ['src/app/main.ts'],
     rules: {
       'boundaries/no-unknown': 'off',
     },
   },
-
   {
     files: [
       '**/*.{test,spec}.{ts,tsx,vue}',
+      '**/*.stories.{ts,tsx}',
       'src/test/**/*.ts',
       'e2e/**/*.ts',
       'playwright.config.ts',
@@ -207,6 +206,6 @@ export default [
       'boundaries/no-unknown-files': 'off',
     },
   },
-
   prettier,
+  ...storybook.configs['flat/recommended'],
 ]
