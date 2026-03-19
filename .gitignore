@@ -35,3 +35,7 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+# Vitest
+/coverage
+/vitest-coverage

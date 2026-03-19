@@ -104,6 +104,7 @@ import { useAuth } from '@/features/auth/composables/useAuth' // different featu
 | `pnpm test`            | Vitest in watch mode                |
 | `pnpm test:run`        | Vitest single run (CI)              |
 | `pnpm test:coverage`   | Vitest single run + coverage report |
+| `pnpm test:storybook`  | Run Storybook interaction tests     |
 | `pnpm hooks:install`   | Install Lefthook Git hooks          |
 | `pnpm hooks:uninstall` | Uninstall Git hooks                 |
 
@@ -129,6 +130,14 @@ pnpm build-storybook
 ```
 
 Use this to generate a static Storybook build for review environments or publishing.
+
+### Run Storybook Tests
+
+```bash
+pnpm test:storybook
+```
+
+This runs Storybook interaction tests defined with `play` functions. Because these tests use Vitest browser mode with Playwright, they should be treated separately from the regular unit test and coverage workflow.
 
 ### Story Conventions
 

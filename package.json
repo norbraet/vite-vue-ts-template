@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "vitest",
-    "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage",
+    "test": "vitest --project unit",
+    "test:run": "vitest run --project unit",
+    "test:coverage": "vitest run --coverage --project unit",
+    "test:storybook": "vitest run --project storybook",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
     "e2e:debug": "playwright test --debug",
