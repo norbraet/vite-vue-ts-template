@@ -1,6 +1,6 @@
 # Vue 3 + TypeScript Template
 
-A modern, opinionated template for Vue 3 applications with TypeScript, featuring **Feature-Sliced Design (FSD)** architecture, strict ESLint boundaries, automated Git hooks, and CI workflows for consistent, team-ready development.
+A modern, opinionated template for Vue 3 applications with TypeScript, featuring **Feature-Sliced Design (FSD)** architecture, Storybook-driven component documentation and testing, strict ESLint boundaries, automated Git hooks, and CI workflows for consistent, team-ready development.
 
 ---
 
@@ -10,6 +10,7 @@ A modern, opinionated template for Vue 3 applications with TypeScript, featuring
 - **TypeScript** with strict configuration
 - **Vite** for fast development & building
 - **Feature-Sliced Design (FSD)** with ESLint boundaries
+- **Storybook** for component documentation and interactive component testing
 - **ESLint + Prettier** for code quality & formatting
 - **Lefthook** Git hooks with Conventional Commits enforcement
 - **Vitest + Vue Test Utils** for unit and component testing
@@ -93,6 +94,8 @@ import { useAuth } from '@/features/auth/composables/useAuth' // different featu
 | `pnpm dev`             | Start dev server                    |
 | `pnpm build`           | Build production                    |
 | `pnpm preview`         | Preview production build            |
+| `pnpm storybook`       | Start Storybook locally             |
+| `pnpm build-storybook` | Build static Storybook output       |
 | `pnpm lint`            | ESLint with auto-fix                |
 | `pnpm lint:check`      | ESLint without fixing               |
 | `pnpm format`          | Prettier format                     |
@@ -103,6 +106,47 @@ import { useAuth } from '@/features/auth/composables/useAuth' // different featu
 | `pnpm test:coverage`   | Vitest single run + coverage report |
 | `pnpm hooks:install`   | Install Lefthook Git hooks          |
 | `pnpm hooks:uninstall` | Uninstall Git hooks                 |
+
+## Storybook
+
+Storybook is part of the standard workflow in this template for both:
+
+- **Component documentation** via colocated `*.stories.ts` files and autodocs
+- **Component testing** via Storybook `play` functions and the Vitest addon
+
+### Start Storybook
+
+```bash
+pnpm storybook
+```
+
+This starts the Storybook dev server on `http://localhost:6006`.
+
+### Build Storybook
+
+```bash
+pnpm build-storybook
+```
+
+Use this to generate a static Storybook build for review environments or publishing.
+
+### Story Conventions
+
+- Keep stories close to the component or page they document, for example `Component.stories.ts`
+- Use `tags: ['autodocs']` to generate documentation pages automatically
+- Use `play` functions for interaction-based component checks
+- Add decorators when a story needs layout wrappers or specific store state
+
+### Shared Storybook Setup
+
+The Storybook preview is already wired with the same core providers used by the app:
+
+- **Pinia** for store-backed components
+- **Vue I18n** with English and German messages
+- **Vue Router** using an in-memory router
+- Global app styles from `src/app/styles/global.css`
+
+This makes Storybook suitable for documenting and testing real feature and page components, not just isolated UI fragments.
 
 ## GitHub Automation & Workflow
 
