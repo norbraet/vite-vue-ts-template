@@ -1,4 +1,4 @@
-import { userEvent, within, expect } from 'storybook/test'
+import { userEvent, within, expect, waitFor } from 'storybook/test'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import LanguageSelector from './LanguageSelector.vue'
 
@@ -90,11 +90,14 @@ export const NearRightEdge: Story = {
   play: async ({ canvasElement }) => {
     const { menu } = await openMenu(canvasElement)
 
+    // wait for transition to finish
+    await waitFor(() => {
+      expect(menu).not.toHaveClass('menu-fade-enter-from')
+      expect(menu).not.toHaveClass('menu-fade-enter-active')
+    })
+
     expect(menu).toHaveClass('is-right')
     expectInViewport(menu)
-
-    const rect = menu.getBoundingClientRect()
-    expect(rect.right).toBeLessThanOrEqual(window.innerWidth)
   },
 }
 
@@ -109,12 +112,17 @@ export const NearBottomEdge: Story = {
   play: async ({ canvasElement }) => {
     const { button, menu } = await openMenu(canvasElement)
 
+    // wait for transition to finish
+    await waitFor(() => {
+      expect(menu).not.toHaveClass('menu-fade-enter-from')
+      expect(menu).not.toHaveClass('menu-fade-enter-active')
+    })
+
     expect(menu).toHaveClass('is-up')
     expectInViewport(menu)
 
     const btnRect = button.getBoundingClientRect()
     const menuRect = menu.getBoundingClientRect()
-
     expect(menuRect.bottom).toBeLessThan(btnRect.top + 1)
   },
 }
