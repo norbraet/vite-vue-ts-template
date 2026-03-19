@@ -118,7 +118,7 @@
 <style scoped>
   .language-selector {
     position: relative;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
   }
