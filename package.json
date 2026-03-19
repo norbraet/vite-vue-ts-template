@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "vitest",
-    "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage",
+    "test": "vitest --project unit",
+    "test:run": "vitest run --project unit",
+    "test:coverage": "vitest run --coverage --project unit",
+    "test:storybook": "vitest run --project storybook",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
     "e2e:debug": "playwright test --debug",
@@ -23,7 +24,9 @@
     "hooks:uninstall": "lefthook uninstall",
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "pinia": "^3.0.4",
@@ -56,6 +59,15 @@
     "vite": "^7.3.1",
     "vitest": "^4.0.18",
     "vue-eslint-parser": "^10.4.0",
-    "vue-tsc": "^3.1.5"
+    "vue-tsc": "^3.1.5",
+    "storybook": "^10.3.0",
+    "@storybook/vue3-vite": "^10.3.0",
+    "@chromatic-com/storybook": "^5.0.1",
+    "@storybook/addon-vitest": "^10.3.0",
+    "@storybook/addon-a11y": "^10.3.0",
+    "@storybook/addon-docs": "^10.3.0",
+    "eslint-plugin-storybook": "^10.3.0",
+    "playwright": "^1.58.2",
+    "@vitest/browser-playwright": "4.0.18"
   }
 }

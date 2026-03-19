@@ -1,7 +1,6 @@
 <script setup lang="ts">
-  import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+  import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
-
   import {
     DEFAULT_LOCALE,
     LOCALE_META,
@@ -10,11 +9,19 @@
     type Locale,
   } from '@/shared/i18n/config/locales'
   import { setStoredLocale } from '@/shared/i18n/lib/persistLocale'
+  import { useFloatingPosition } from '@/shared/composables/useFloatingPosition'
 
   const { t, locale } = useI18n()
 
   const rootRef = ref<HTMLElement | null>(null)
+  const menuRef = ref<HTMLElement | null>(null)
   const isOpen = ref(false)
+
+  const { horizontal, vertical, onOpen, updatePosition } = useFloatingPosition(
+    rootRef,
+    menuRef,
+    isOpen
+  )
 
   const localeOptions = SUPPORTED_LOCALES.map((code) => ({
     code,
@@ -40,8 +47,12 @@
     isOpen.value = false
   }
 
-  function toggleMenu(): void {
+  async function toggleMenu(): Promise<void> {
     isOpen.value = !isOpen.value
+
+    if (isOpen.value) {
+      await onOpen()
+    }
   }
 
   function closeMenu(): void {
@@ -65,6 +76,25 @@
     }
   }
 
+  function addResizeListeners() {
+    window.addEventListener('resize', updatePosition)
+    window.addEventListener('scroll', updatePosition, true)
+  }
+
+  function removeResizeListeners() {
+    window.removeEventListener('resize', updatePosition)
+    window.removeEventListener('scroll', updatePosition, true)
+  }
+
+  watch(isOpen, (open) => {
+    if (open) {
+      addResizeListeners()
+      updatePosition()
+    } else {
+      removeResizeListeners()
+    }
+  })
+
   onMounted(() => {
     window.addEventListener('click', handleClickOutside)
     window.addEventListener('keydown', handleEscape)
@@ -73,6 +103,7 @@
   onBeforeUnmount(() => {
     window.removeEventListener('click', handleClickOutside)
     window.removeEventListener('keydown', handleEscape)
+    removeResizeListeners()
   })
 </script>
 
@@ -93,7 +124,9 @@
     <Transition name="menu-fade">
       <div
         v-if="isOpen"
+        ref="menuRef"
         class="selector-menu"
+        :class="[`is-${horizontal}`, `is-${vertical}`]"
         role="listbox"
         :aria-label="t('languageSelector.ariaLabel')"
       >
@@ -118,7 +151,7 @@
 <style scoped>
   .language-selector {
     position: relative;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
   }
@@ -171,8 +204,6 @@
 
   .selector-menu {
     position: absolute;
-    top: calc(100% + 0.4rem);
-    right: 0;
     min-width: 11rem;
     padding: 0.35rem;
     border-radius: var(--radius-lg);
@@ -184,6 +215,22 @@
     flex-direction: column;
     gap: 0.2rem;
     overflow: hidden;
+  }
+
+  .selector-menu.is-down {
+    top: calc(100% + 0.4rem);
+  }
+
+  .selector-menu.is-up {
+    bottom: calc(100% + 0.4rem);
+  }
+
+  .selector-menu.is-left {
+    left: 0;
+  }
+
+  .selector-menu.is-right {
+    right: 0;
   }
 
   .menu-item {
