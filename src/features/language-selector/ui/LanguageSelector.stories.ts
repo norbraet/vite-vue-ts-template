@@ -106,7 +106,7 @@ export const NearBottomEdge: Story = {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 100vh;
+    height: 100cqh;
     padding: 16px;
   `),
   play: async ({ canvasElement }) => {
