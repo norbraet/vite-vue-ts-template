@@ -202,6 +202,14 @@ Before the CI pipeline works correctly, you must configure the following:
 
 Without this secret the `chromatic` job will fail. If you don't intend to use Chromatic, remove the `chromatic` job from `.github/workflows/ci.yml` and the `chromatic` script from `package.json`.
 
+**Running Chromatic manually**
+
+To publish to Chromatic from your local machine, pass the token directly:
+
+```bash
+npx chromatic --project-token=<your-token>
+```
+
 ---
 
 ## Page vs Feature Guidelines
