@@ -177,7 +177,38 @@ PRs should follow `.github/pull_request_template.md`:
 
 ### CI Workflow
 
-- `.github/workflows/ci.yml` runs format, lint, typecheck, and unit tests on PRs automatically
+`.github/workflows/ci.yml` runs the following jobs on every PR and push to `main`:
+
+| Job               | Description                                         |
+| ----------------- | --------------------------------------------------- |
+| `format`          | Prettier format check                               |
+| `lint`            | ESLint check                                        |
+| `typecheck`       | vue-tsc type checking                               |
+| `unit-tests`      | Vitest unit tests with coverage report artifact     |
+| `e2e-tests`       | Playwright E2E tests with HTML report artifact      |
+| `storybook-tests` | Storybook interaction tests via Vitest browser mode |
+| `chromatic`       | Visual regression testing via Chromatic             |
+| `build`           | Production build (runs only when all above pass)    |
+
+#### Required Setup After Using This Template
+
+Before the CI pipeline works correctly, you must configure the following:
+
+**Chromatic (visual regression testing)**
+
+1. Create a project at [chromatic.com](https://www.chromatic.com) and get your project token
+2. In your GitHub repository go to **Settings → Secrets and variables → Actions → New repository secret**
+3. Add a secret named `CHROMATIC_PROJECT_TOKEN` with your Chromatic project token
+
+Without this secret the `chromatic` job will fail. If you don't intend to use Chromatic, remove the `chromatic` job from `.github/workflows/ci.yml` and the `chromatic` script from `package.json`.
+
+**Running Chromatic manually**
+
+To publish to Chromatic from your local machine, pass the token directly:
+
+```bash
+npx chromatic --project-token=<your-token>
+```
 
 ---
 
