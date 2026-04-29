@@ -9,6 +9,7 @@ import vueParser from 'vue-eslint-parser'
 import prettier from 'eslint-config-prettier'
 import boundaries from 'eslint-plugin-boundaries'
 import globals from 'globals'
+import pluginVueA11y from 'eslint-plugin-vuejs-accessibility'
 
 export default [
   {
@@ -16,6 +17,7 @@ export default [
   },
   js.configs.recommended,
   ...vue.configs['flat/recommended'],
+  ...pluginVueA11y.configs['flat/recommended'],
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
     languageOptions: {
