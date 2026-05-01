@@ -165,6 +165,9 @@
   .stack {
     max-width: 560px;
     margin: 0 auto;
+    padding: var(--space-component-md);
+    background-color: var(--color-bg-subtle);
+    border-radius: var(--radius-card);
   }
 
   .stack h2 {
@@ -185,6 +188,9 @@
   .badge-grid a.badge {
     text-decoration: none;
     color: var(--color-text-muted);
+    padding: var(--space-component-nano);
+    background-color: var(--color-surface-raised);
+    border-radius: var(--radius-tag);
   }
 
   .badge-grid a.badge:hover {
