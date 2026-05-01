@@ -148,35 +148,35 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   .language-selector {
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-component-xs);
   }
 
   .selector-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-text-secondary);
+    font-size: var(--text-xs-size);
+    font-weight: var(--text-label-weight);
+    color: var(--color-text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: var(--text-spacing-label);
   }
 
   .selector-trigger {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    height: 2rem;
-    padding: 0 0.625rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
-    font-size: 0.75rem;
-    font-weight: 600;
-    box-shadow: var(--shadow-xs);
+    gap: var(--space-component-xs);
+    height: var(--size-control-sm);
+    padding: 0 var(--space-component-sm);
+    border-radius: var(--radius-button);
+    border: var(--border-width-thin) solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-size: var(--text-xs-size);
+    font-weight: var(--text-label-weight);
+    box-shadow: var(--shadow-interactive);
   }
 
   .selector-trigger:hover {
@@ -185,17 +185,17 @@
 
   .trigger-code {
     color: var(--color-primary);
-    font-family: var(--font-mono);
-    letter-spacing: 0.06em;
+    font-family: var(--text-mono-font);
+    letter-spacing: var(--text-spacing-label);
   }
 
   .trigger-name {
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted);
   }
 
   .trigger-icon {
-    color: var(--color-text-secondary);
-    transition: transform 0.15s ease;
+    color: var(--color-text-muted);
+    transition: transform var(--motion-fast) var(--motion-ease-standard);
   }
 
   .trigger-icon.is-open {
@@ -205,23 +205,25 @@
   .selector-menu {
     position: absolute;
     min-width: 11rem;
-    padding: 0.35rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-border);
-    background-color: var(--color-bg-primary);
-    box-shadow: var(--shadow-lg);
-    z-index: 210;
+    padding: var(--space-component-xs);
+    border-radius: var(--radius-menu);
+    border: var(--border-width-thin) solid var(--color-border);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-dropdown);
+    z-index: var(--z-dropdown);
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: var(--space-component-nano);
     overflow: hidden;
   }
 
   .selector-menu.is-down {
+    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
     top: calc(100% + 0.4rem);
   }
 
   .selector-menu.is-up {
+    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
     bottom: calc(100% + 0.4rem);
   }
 
@@ -241,10 +243,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.75rem;
-    padding: 0.45rem 0.55rem;
-    border-radius: var(--radius-md);
-    border: 1px solid transparent;
+    gap: var(--space-component-sm);
+    padding: var(--space-component-xs);
+    border-radius: var(--radius-button);
+    border: var(--border-width-thin) solid transparent;
     background: transparent;
     white-space: normal;
     min-width: 0;
@@ -261,9 +263,9 @@
   }
 
   .item-primary {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
+    font-size: var(--text-caption-size);
+    font-weight: var(--text-label-weight);
+    color: var(--color-text);
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -271,8 +273,8 @@
   }
 
   .item-secondary {
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
+    font-size: var(--text-xs-size);
+    color: var(--color-text-muted);
     min-width: 0;
     text-align: right;
     overflow: hidden;
@@ -280,11 +282,16 @@
     white-space: nowrap;
   }
 
-  .menu-fade-enter-active,
+  .menu-fade-enter-active {
+    transition:
+      opacity var(--motion-fast) var(--motion-ease-enter),
+      transform var(--motion-fast) var(--motion-ease-enter);
+  }
+
   .menu-fade-leave-active {
     transition:
-      opacity 0.14s ease,
-      transform 0.14s ease;
+      opacity var(--motion-fast) var(--motion-ease-exit),
+      transform var(--motion-fast) var(--motion-ease-exit);
   }
 
   .menu-fade-enter-from,
@@ -300,7 +307,7 @@
     }
 
     .selector-menu {
-      min-width: 8rem;
+      min-width: var(--layout-menu-min-sm);
     }
 
     .trigger-name {

@@ -59,6 +59,7 @@ const guide = {
     build: 'type-check + production build',
     preview: 'preview production build',
     lint: 'ESLint + auto-fix',
+    lintcss: 'Stylelint + Custom Plugins',
     format: 'Prettier',
     typecheck: 'vue-tsc',
     test: 'Vitest in watch mode',

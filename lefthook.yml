@@ -21,6 +21,12 @@ pre-commit:
       fail_text: '❌ ESLint found issues. Run "pnpm lint:fix" to fix them and push again.'
       skip_empty: true
 
+    stylelint:
+      glob: '*.{vue,css}'
+      run: pnpm lint:css:staged "{staged_files}"
+      fail_text: '❌ Stylelint found issues. Run "pnpm lint:css:fix" to fix them and commit again.'
+      skip_empty: true
+
 commit-msg:
   commands:
     commitlint:

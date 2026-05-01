@@ -13,9 +13,15 @@ export const useThemeStore = defineStore('app', () => {
   const isLoading = ref(false)
   const notifications = ref<Array<{ id: string; message: string; type: string }>>([])
 
+  const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+  const systemPrefersDark = ref(darkMediaQuery.matches)
+  darkMediaQuery.addEventListener('change', (e) => {
+    systemPrefersDark.value = e.matches
+  })
+
   const isDarkMode = computed(() => {
     if (theme.value === THEME_OPTIONS.SYSTEM) {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
+      return systemPrefersDark.value
     }
     return theme.value === THEME_OPTIONS.DARK
   })
@@ -27,12 +33,13 @@ export const useThemeStore = defineStore('app', () => {
   function setTheme(newTheme: Theme) {
     theme.value = newTheme
 
-    document.documentElement.className = ''
-    if (newTheme !== THEME_OPTIONS.SYSTEM) {
-      document.documentElement.classList.add(`theme-${newTheme}`)
+    if (newTheme === THEME_OPTIONS.SYSTEM) {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', newTheme)
     }
 
-    localStorage.setItem('theme', newTheme)
+    localStorage.setItem(STORAGE_KEYS.THEME, newTheme)
   }
 
   function setLoading(loading: boolean) {

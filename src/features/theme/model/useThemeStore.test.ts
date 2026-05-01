@@ -7,7 +7,7 @@ describe('useThemeStore', () => {
   beforeEach(() => {
     setActivePinia(createPinia())
     localStorage.clear()
-    document.documentElement.className = ''
+    document.documentElement.removeAttribute('data-theme')
   })
 
   // --- Initial state ---
@@ -43,25 +43,24 @@ describe('useThemeStore', () => {
     expect(localStorage.getItem('theme')).toBe(THEME_OPTIONS.LIGHT)
   })
 
-  it('setTheme adds a theme class to the document root', () => {
+  it('setTheme sets the data-theme attribute on the document root', () => {
     const store = useThemeStore()
     store.setTheme(THEME_OPTIONS.DARK)
-    expect(document.documentElement.classList.contains('theme-dark')).toBe(true)
+    expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
   })
 
-  it('setTheme clears previous theme classes when switching', () => {
+  it('setTheme replaces the data-theme attribute when switching', () => {
     const store = useThemeStore()
     store.setTheme(THEME_OPTIONS.DARK)
     store.setTheme(THEME_OPTIONS.LIGHT)
-    expect(document.documentElement.classList.contains('theme-dark')).toBe(false)
-    expect(document.documentElement.classList.contains('theme-light')).toBe(true)
+    expect(document.documentElement.getAttribute('data-theme')).toBe('light')
   })
 
-  it('setTheme with system theme does not add a class', () => {
+  it('setTheme with system theme removes the data-theme attribute', () => {
     const store = useThemeStore()
-    store.setTheme(THEME_OPTIONS.DARK) // set something first
+    store.setTheme(THEME_OPTIONS.DARK)
     store.setTheme(THEME_OPTIONS.SYSTEM)
-    expect(document.documentElement.className).toBe('')
+    expect(document.documentElement.getAttribute('data-theme')).toBeNull()
   })
 
   // --- isDarkMode computed ---
