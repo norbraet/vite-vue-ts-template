@@ -1,21 +1,17 @@
 @layer reset, primitives, semantics, themes, base;
 
-@import './reset.css';
-
-@import './tokens/primitives/colors.css';
-@import './tokens/primitives/motion.css';
-@import './tokens/primitives/radius.css';
-@import './tokens/primitives/shadows.css';
-@import './tokens/primitives/spacing.css';
-@import './tokens/primitives/typography.css';
-@import './tokens/primitives/z-index.css';
-
-@import './tokens/semantics/colors.semantic.css';
-@import './tokens/semantics/layout.semantic.css';
-@import './tokens/semantics/motion.semantic.css';
-@import './tokens/semantics/typography.semantic.css';
-
-@import './tokens/themes/dark.css';
-@import './tokens/themes/light.css';
-
-@import './base.css';
+@import url('./reset.css');
+@import url('./primitives/colors.css');
+@import url('./primitives/motion.css');
+@import url('./primitives/radius.css');
+@import url('./primitives/shadows.css');
+@import url('./primitives/spacing.css');
+@import url('./primitives/typography.css');
+@import url('./primitives/z-index.css');
+@import url('./semantics/colors.semantics.css');
+@import url('./semantics/layout.semantics.css');
+@import url('./semantics/motion.semantics.css');
+@import url('./semantics/typography.semantics.css');
+@import url('./themes/dark.css');
+@import url('./themes/light.css');
+@import url('./base.css');

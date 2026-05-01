@@ -13,7 +13,6 @@
     font-weight: var(--text-body-weight);
     line-height: var(--text-body-line-height);
     letter-spacing: var(--text-body-letter-spacing);
-
     background-color: var(--color-bg);
     color: var(--color-text);
   }

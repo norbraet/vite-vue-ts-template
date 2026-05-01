@@ -1,6 +1,6 @@
 @layer primitives {
   :root {
-    --color-neutral-0: #ffffff;
+    --color-neutral-0: #fff;
     --color-neutral-50: #f8fafc;
     --color-neutral-100: #f1f5f9;
     --color-neutral-200: #e2e8f0;
@@ -11,7 +11,6 @@
     --color-neutral-700: #334155;
     --color-neutral-800: #1e293b;
     --color-neutral-900: #0f172a;
-
     --color-blue-50: #f0f9ff;
     --color-blue-100: #e0f2fe;
     --color-blue-200: #bae6fd;
@@ -22,7 +21,6 @@
     --color-blue-700: #0369a1;
     --color-blue-800: #075985;
     --color-blue-900: #0c4a6e;
-
     --color-purple-50: #faf5ff;
     --color-purple-100: #f3e8ff;
     --color-purple-200: #e9d5ff;
@@ -33,7 +31,6 @@
     --color-purple-700: #7e22ce;
     --color-purple-800: #6b21a8;
     --color-purple-900: #581c87;
-
     --color-green-50: #f0fdf4;
     --color-green-100: #dcfce7;
     --color-green-200: #bbf7d0;
@@ -44,7 +41,6 @@
     --color-green-700: #15803d;
     --color-green-800: #166534;
     --color-green-900: #14532d;
-
     --color-red-50: #fef2f2;
     --color-red-100: #fee2e2;
     --color-red-200: #fecaca;
@@ -55,7 +51,6 @@
     --color-red-700: #b91c1c;
     --color-red-800: #991b1b;
     --color-red-900: #7f1d1d;
-
     --color-orange-50: #fff7ed;
     --color-orange-100: #ffedd5;
     --color-orange-200: #fed7aa;
@@ -66,7 +61,6 @@
     --color-orange-700: #c2410c;
     --color-orange-800: #9a3412;
     --color-orange-900: #7c2d12;
-
     --color-yellow-50: #fefce8;
     --color-yellow-100: #fef9c3;
     --color-yellow-200: #fef08a;
@@ -77,7 +71,6 @@
     --color-yellow-700: #a16207;
     --color-yellow-800: #854d0e;
     --color-yellow-900: #713f12;
-
     --color-pink-50: #fdf2f8;
     --color-pink-100: #fce7f3;
     --color-pink-200: #fbcfe8;
