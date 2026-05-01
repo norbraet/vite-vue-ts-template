@@ -9,16 +9,14 @@
     margin: 0;
   }
 
-  html:focus-within {
-    scroll-behavior: smooth;
+  html,
+  body {
+    height: 100%;
   }
 
   body {
-    min-height: 100vh;
-    min-height: 100dvh;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
   }
 
   img,
@@ -38,8 +36,9 @@
   }
 
   button {
-    all: unset;
-    font: inherit;
+    background: none;
+    border: none;
+    padding: 0;
     cursor: pointer;
   }
 
@@ -49,14 +48,8 @@
     padding: 0;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 }
