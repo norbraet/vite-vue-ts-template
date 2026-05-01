@@ -43,8 +43,7 @@
 <style lang="css" scoped>
   .notification-container {
     position: fixed;
-    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
-    top: 4.5rem;
+    top: var(--layout-notification-position);
     right: var(--space-component-xl);
     z-index: var(--z-toast);
     pointer-events: none;
@@ -61,8 +60,7 @@
     border: var(--border-width-thin) solid var(--color-border);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
-    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
-    padding: 0.875rem var(--space-component-md);
+    padding: var(--space-component-sm) var(--space-component-md);
     min-width: 300px;
     max-width: 380px;
     display: flex;
@@ -76,8 +74,7 @@
   .notification-content {
     display: flex;
     align-items: center;
-    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
-    gap: 0.625rem;
+    gap: var(--space-component-xs);
     flex: 1;
     min-width: 0;
   }
@@ -107,8 +104,7 @@
     background: none;
     border: none;
     height: auto;
-    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
-    padding: 0.125rem;
+    padding: var(--space-component-nano);
     color: var(--color-text-muted);
     cursor: pointer;
     font-size: var(--text-body-size);

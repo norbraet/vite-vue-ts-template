@@ -19,6 +19,7 @@
     --layout-sidebar-width: 16rem;
     --layout-gap: var(--space-6);
     --layout-menu-min-sm: 8rem;
+    --layout-notification-position: var(--space-24);
 
     [data-density='compact'] {
       --space-component-nano: var(--space-1);

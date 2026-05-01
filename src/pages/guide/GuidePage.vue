@@ -206,16 +206,10 @@ shared/i18n/
   .card ul:not(.scripts) {
     margin: var(--space-component-sm) 0;
     padding-left: var(--space-component-xl);
-    list-style: initial;
-  }
-
-  .card ol {
-    list-style: decimal;
   }
 
   .card li {
-    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
-    margin: 0.4rem 0;
+    margin: var(--space-component-xs) 0;
     color: var(--color-text-muted);
     font-size: var(--text-prose-size);
   }
@@ -275,10 +269,8 @@ shared/i18n/
   .scripts li {
     display: flex;
     align-items: baseline;
-    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
-    gap: 0.625rem;
-    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
-    padding: 0.375rem 0;
+    gap: calc(var(--space-component-nano) + var(--space-component-xs));
+    padding: var(--space-component-nano) 0;
     border-bottom: var(--border-width-thin) solid var(--color-border);
     font-size: var(--text-prose-size);
   }

@@ -169,8 +169,7 @@
     align-items: center;
     gap: var(--space-component-xs);
     height: var(--size-control-sm);
-    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
-    padding: 0 0.625rem;
+    padding: 0 var(--space-component-sm);
     border-radius: var(--radius-md);
     border: var(--border-width-thin) solid var(--color-border);
     background-color: var(--color-surface);
@@ -206,8 +205,7 @@
   .selector-menu {
     position: absolute;
     min-width: 11rem;
-    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
-    padding: 0.35rem;
+    padding: var(--space-component-xs);
     border-radius: var(--radius-lg);
     border: var(--border-width-thin) solid var(--color-border);
     background-color: var(--color-surface);
@@ -215,8 +213,7 @@
     z-index: var(--z-dropdown);
     display: flex;
     flex-direction: column;
-    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
-    gap: 0.2rem;
+    gap: var(--space-component-nano);
     overflow: hidden;
   }
 
@@ -247,8 +244,7 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--space-component-sm);
-    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
-    padding: 0.45rem 0.55rem;
+    padding: var(--space-component-xs);
     border-radius: var(--radius-md);
     border: var(--border-width-thin) solid transparent;
     background: transparent;
