@@ -2,8 +2,8 @@ import { checkA11y } from '../a11y/checkA11y'
 import { test, expect } from '../index'
 
 test.describe('Not Found (404) page', () => {
-  test('a11y: guide page baseline', async ({ guidePage }) => {
-    await checkA11y(guidePage.page)
+  test('a11y: 404 page baseline', async ({ notFoundPage }) => {
+    await checkA11y(notFoundPage.page)
   })
 
   test('shows "404" error code for unknown routes', async ({ notFoundPage }) => {
