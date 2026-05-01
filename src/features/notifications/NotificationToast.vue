@@ -58,8 +58,8 @@
   .notification {
     background: var(--color-surface);
     border: var(--border-width-thin) solid var(--color-border);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-toast);
+    box-shadow: var(--shadow-toast);
     padding: var(--space-component-sm) var(--space-component-md);
     min-width: 300px;
     max-width: 380px;
@@ -88,7 +88,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-badge);
   }
 
   .notification-message {
@@ -110,7 +110,7 @@
     font-size: var(--text-body-size);
     line-height: var(--text-line-none);
     flex-shrink: 0;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-button);
     transition: color var(--motion-fast) var(--motion-ease-standard);
   }
 
@@ -121,11 +121,11 @@
 
   /* Type variants — accent via left border + icon color */
   .notification-info {
-    border-left: var(--border-width-indicator) solid var(--color-primary);
+    border-left: var(--border-width-indicator) solid var(--color-info);
   }
 
   .notification-info .notification-icon {
-    color: var(--color-primary);
+    color: var(--color-info);
   }
 
   .notification-success {

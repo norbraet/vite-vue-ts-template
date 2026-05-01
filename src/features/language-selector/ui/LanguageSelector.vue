@@ -170,13 +170,13 @@
     gap: var(--space-component-xs);
     height: var(--size-control-sm);
     padding: 0 var(--space-component-sm);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-button);
     border: var(--border-width-thin) solid var(--color-border);
     background-color: var(--color-surface);
     color: var(--color-text);
     font-size: var(--text-xs-size);
     font-weight: var(--text-label-weight);
-    box-shadow: var(--shadow-xs);
+    box-shadow: var(--shadow-interactive);
   }
 
   .selector-trigger:hover {
@@ -206,10 +206,10 @@
     position: absolute;
     min-width: 11rem;
     padding: var(--space-component-xs);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-menu);
     border: var(--border-width-thin) solid var(--color-border);
     background-color: var(--color-surface);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-dropdown);
     z-index: var(--z-dropdown);
     display: flex;
     flex-direction: column;
@@ -245,7 +245,7 @@
     justify-content: space-between;
     gap: var(--space-component-sm);
     padding: var(--space-component-xs);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-button);
     border: var(--border-width-thin) solid transparent;
     background: transparent;
     white-space: normal;

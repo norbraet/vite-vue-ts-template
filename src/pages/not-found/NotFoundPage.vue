@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { useI18n } from 'vue-i18n'
   import { useRouter } from 'vue-router'
-  import BaseButton from '@/shared/components/BaseButton.vue'
+  import { BaseButton } from '@/shared/components/BaseButton'
 
   const router = useRouter()
   const { t } = useI18n()

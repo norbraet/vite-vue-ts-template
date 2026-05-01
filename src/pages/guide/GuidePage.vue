@@ -226,7 +226,7 @@ shared/i18n/
     background-color: var(--color-bg-subtle);
     color: var(--color-primary);
     border: var(--border-width-thin) solid var(--color-border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-tag);
 
     /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
     padding: 0.15em 0.4em;
@@ -243,7 +243,7 @@ shared/i18n/
     color: #d4d4d8;
     /* stylelint-disable-next-line plugin/no-hardcoded-colors, plugin/no-hardcoded-border */
     border: 1px solid #27272a;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-card);
     /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
     padding: 1.125rem var(--space-component-xl);
     overflow-x: auto;

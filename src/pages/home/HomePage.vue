@@ -2,7 +2,7 @@
   import { useI18n } from 'vue-i18n'
   import { useThemeStore } from '@/features/theme/model/useThemeStore'
   import { THEME_OPTIONS } from '@/features/theme/config'
-  import BaseButton from '@/shared/components/BaseButton.vue'
+  import { BaseButton } from '@/shared/components/BaseButton'
 
   const { t } = useI18n()
   const appStore = useThemeStore()
