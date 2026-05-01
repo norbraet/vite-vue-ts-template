@@ -146,10 +146,7 @@
     letter-spacing: var(--text-spacing-heading);
     line-height: var(--text-line-tight);
     margin-bottom: var(--space-component-xl);
-    background: linear-gradient(145deg, var(--color-text) 20%, var(--color-primary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-primary);
   }
 
   .hero p {
@@ -168,6 +165,9 @@
   .stack {
     max-width: 560px;
     margin: 0 auto;
+    padding: var(--space-component-md);
+    background-color: var(--color-bg-subtle);
+    border-radius: var(--radius-card);
   }
 
   .stack h2 {
@@ -187,7 +187,10 @@
 
   .badge-grid a.badge {
     text-decoration: none;
-    color: var(--color-text-muted);
+    color: var(--color-text);
+    padding: var(--space-component-nano);
+    background-color: var(--color-surface-raised);
+    border-radius: var(--radius-tag);
   }
 
   .badge-grid a.badge:hover {

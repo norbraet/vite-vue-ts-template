@@ -76,10 +76,7 @@
     font-weight: var(--text-display-weight);
     letter-spacing: var(--text-spacing-ui);
     text-decoration: none;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-text) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-text);
     transition: opacity var(--motion-fast) var(--motion-ease-standard);
     flex-shrink: 0;
   }
@@ -136,7 +133,7 @@
     max-width: var(--layout-max-width);
     margin: 0 auto;
     padding: var(--space-component-md) var(--space-component-lg);
-    color: var(--color-text-muted);
+    color: var(--color-text);
     font-size: var(--text-caption-size);
     text-align: center;
   }

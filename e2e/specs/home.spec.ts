@@ -1,6 +1,11 @@
 import { test, expect } from '../index'
+import { checkA11y } from '../a11y/checkA11y'
 
 test.describe('Home page', () => {
+  test('a11y: home page baseline', async ({ homePage }) => {
+    await checkA11y(homePage.page)
+  })
+
   test('hero heading is visible', async ({ homePage }) => {
     await expect(homePage.heroHeading).toBeVisible()
   })
@@ -17,6 +22,7 @@ test.describe('Home page', () => {
   test('theme toggle button is visible and clickable', async ({ homePage }) => {
     await expect(homePage.themeToggleButton).toBeVisible()
     await homePage.toggleTheme()
+    await checkA11y(homePage.page)
     // Theme cycled — button is still present
     await expect(homePage.themeToggleButton).toBeVisible()
   })

@@ -12,7 +12,7 @@ export class HomePage extends AppPage {
     super(page)
     this.heroHeading = page.locator('.hero h1')
     this.heroSubtitle = page.locator('.hero p')
-    this.viewGuideButton = page.locator('.hero-actions a.btn-primary')
+    this.viewGuideButton = page.locator('.hero-actions .variant-primary')
     this.themeToggleButton = page.locator('.hero-actions button')
     this.stackSection = page.locator('.stack.card')
   }

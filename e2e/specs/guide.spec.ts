@@ -1,6 +1,11 @@
+import { checkA11y } from '../a11y/checkA11y'
 import { test, expect } from '../index'
 
 test.describe('Guide page', () => {
+  test('a11y: guide page baseline', async ({ guidePage }) => {
+    await checkA11y(guidePage.page)
+  })
+
   test('guide heading is visible', async ({ guidePage }) => {
     await expect(guidePage.heading).toBeVisible()
   })
