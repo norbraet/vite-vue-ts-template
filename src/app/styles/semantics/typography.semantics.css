@@ -1,0 +1,56 @@
+@layer semantics {
+  :root {
+    --text-body-font: var(--font-family-sans);
+    --text-body-size: var(--font-size-md);
+    --text-body-weight: var(--font-weight-regular);
+    --text-body-line-height: var(--line-height-normal);
+    --text-body-letter-spacing: var(--letter-spacing-normal);
+
+    --text-heading-font: var(--font-family-sans);
+    --text-h1-size: var(--font-size-5xl);
+    --text-h1-weight: var(--font-weight-bold);
+    --text-h1-line-height: var(--line-height-tight);
+    --text-h2-size: var(--font-size-4xl);
+    --text-h2-weight: var(--font-weight-bold);
+    --text-h2-line-height: var(--line-height-tight);
+    --text-h3-size: var(--font-size-3xl);
+    --text-h3-weight: var(--font-weight-semibold);
+    --text-h3-line-height: var(--line-height-tight);
+    --text-h4-size: var(--font-size-2xl);
+    --text-h4-weight: var(--font-weight-semibold);
+    --text-h4-line-height: var(--line-height-snug);
+    --text-h5-size: var(--font-size-xl);
+    --text-h5-weight: var(--font-weight-semibold);
+    --text-h5-line-height: var(--line-height-snug);
+    --text-h6-size: var(--font-size-lg);
+    --text-h6-weight: var(--font-weight-semibold);
+    --text-h6-line-height: var(--line-height-normal);
+
+    --text-xs-size: var(--font-size-xs);
+    --text-caption-size: var(--font-size-caption);
+    --text-small-size: var(--font-size-sm);
+    --text-small-weight: var(--font-weight-regular);
+    --text-prose-size: var(--font-size-prose);
+    --text-lg-size: var(--font-size-lg);
+    --text-title-size: var(--font-size-title);
+
+    --text-display-weight: var(--font-weight-bold);
+    --text-label-weight: var(--font-weight-semibold);
+    --text-emphasis-weight: var(--font-weight-medium);
+
+    --text-mono-font: var(--font-family-mono);
+
+    --text-line-none: var(--line-height-none);
+    --text-line-tight: var(--line-height-tight);
+    --text-line-snug: var(--line-height-snug);
+    --text-line-normal: var(--line-height-normal);
+    --text-line-relaxed: var(--line-height-relaxed);
+    --text-line-loose: var(--line-height-loose);
+
+    --text-spacing-tight: var(--letter-spacing-tight);
+    --text-spacing-ui: var(--letter-spacing-ui);
+    --text-spacing-heading: var(--letter-spacing-heading);
+    --text-spacing-display: var(--letter-spacing-display);
+    --text-spacing-label: var(--letter-spacing-label);
+  }
+}

@@ -1,0 +1,16 @@
+@layer primitives {
+  :root {
+    --z-below: -1;
+    --z-base: 0;
+    --z-raised: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-overlay: 300;
+    --z-modal-backdrop: 400;
+    --z-modal: 500;
+    --z-tooltip: 600;
+    --z-popover: 700;
+    --z-toast: 800;
+    --z-max: 9999;
+  }
+}

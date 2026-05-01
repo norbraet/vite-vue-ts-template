@@ -40,32 +40,32 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   .notification-container {
     position: fixed;
-    top: 4.5rem;
-    right: 1.25rem;
-    z-index: 9999;
+    top: var(--layout-notification-position);
+    right: var(--space-component-xl);
+    z-index: var(--z-toast);
     pointer-events: none;
   }
 
   .notification-stack {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--space-component-xs);
   }
 
   .notification {
-    background: var(--color-bg-primary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
-    padding: 0.875rem 1rem;
+    background: var(--color-surface);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--radius-toast);
+    box-shadow: var(--shadow-toast);
+    padding: var(--space-component-sm) var(--space-component-md);
     min-width: 300px;
     max-width: 380px;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--space-component-sm);
     pointer-events: auto;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -74,28 +74,28 @@
   .notification-content {
     display: flex;
     align-items: center;
-    gap: 0.625rem;
+    gap: var(--space-component-xs);
     flex: 1;
     min-width: 0;
   }
 
   .notification-icon {
-    font-weight: 700;
-    font-size: 0.875rem;
+    font-weight: var(--text-display-weight);
+    font-size: var(--text-small-size);
     flex-shrink: 0;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: var(--size-icon-sm);
+    height: var(--size-icon-sm);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-badge);
   }
 
   .notification-message {
-    color: var(--color-text-primary);
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 1.4;
+    color: var(--color-text);
+    font-size: var(--text-small-size);
+    font-weight: var(--text-emphasis-weight);
+    line-height: var(--text-line-snug);
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -104,46 +104,50 @@
     background: none;
     border: none;
     height: auto;
-    padding: 0.125rem;
-    color: var(--color-text-secondary);
+    padding: var(--space-component-nano);
+    color: var(--color-text-muted);
     cursor: pointer;
-    font-size: 1rem;
-    line-height: 1;
+    font-size: var(--text-body-size);
+    line-height: var(--text-line-none);
     flex-shrink: 0;
-    border-radius: var(--radius-sm);
-    transition: color 0.15s ease;
+    border-radius: var(--radius-button);
+    transition: color var(--motion-fast) var(--motion-ease-standard);
   }
 
   .notification-close:hover {
-    color: var(--color-text-primary);
+    color: var(--color-text);
     background-color: transparent;
   }
 
   /* Type variants — accent via left border + icon color */
   .notification-info {
-    border-left: 3px solid var(--color-primary);
+    border-left: var(--border-width-indicator) solid var(--color-info);
   }
+
   .notification-info .notification-icon {
-    color: var(--color-primary);
+    color: var(--color-info);
   }
 
   .notification-success {
-    border-left: 3px solid var(--color-success);
+    border-left: var(--border-width-indicator) solid var(--color-success);
   }
+
   .notification-success .notification-icon {
     color: var(--color-success);
   }
 
   .notification-warning {
-    border-left: 3px solid var(--color-warning);
+    border-left: var(--border-width-indicator) solid var(--color-warning);
   }
+
   .notification-warning .notification-icon {
     color: var(--color-warning);
   }
 
   .notification-error {
-    border-left: 3px solid var(--color-error);
+    border-left: var(--border-width-indicator) solid var(--color-error);
   }
+
   .notification-error .notification-icon {
     color: var(--color-error);
   }
@@ -151,34 +155,35 @@
   /* Transition */
   .notification-enter-active {
     transition:
-      opacity 0.25s ease,
-      transform 0.25s ease;
+      opacity var(--motion-normal) var(--motion-ease-enter),
+      transform var(--motion-normal) var(--motion-ease-enter);
   }
 
   .notification-leave-active {
     transition:
-      opacity 0.2s ease,
-      transform 0.2s ease;
+      opacity var(--motion-normal) var(--motion-ease-exit),
+      transform var(--motion-normal) var(--motion-ease-exit);
   }
 
   .notification-enter-from {
     opacity: 0;
-    transform: translateX(1.5rem);
+    transform: translateX(var(--space-component-lg));
   }
 
   .notification-leave-to {
     opacity: 0;
-    transform: translateX(1.5rem);
+    transform: translateX(var(--space-component-lg));
   }
 
   .notification-move {
-    transition: transform 0.25s ease;
+    transition: transform var(--motion-normal) var(--motion-ease-standard);
   }
 
   @media (max-width: 640px) {
     .notification-container {
-      left: 1rem;
-      right: 1rem;
+      left: var(--space-component-md);
+      right: var(--space-component-md);
+      /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
       top: 4.5rem;
     }
 

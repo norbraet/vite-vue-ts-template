@@ -1,5 +1,20 @@
-@layer reset, base, components;
+@layer reset, primitives, semantics, themes, components, base;
 
-@import './reset.css';
-@import './base.css';
-@import './components.css';
+@import url('./reset.css');
+@import url('./primitives/colors.css');
+@import url('./primitives/motion.css');
+@import url('./primitives/radius.css');
+@import url('./primitives/shadows.css');
+@import url('./primitives/spacing.css');
+@import url('./primitives/typography.css');
+@import url('./primitives/z-index.css');
+@import url('./semantics/colors.semantics.css');
+@import url('./semantics/layout.semantics.css');
+@import url('./semantics/borders.semantics.css');
+@import url('./semantics/shadows.semantics.css');
+@import url('./semantics/radius.semantics.css');
+@import url('./semantics/motion.semantics.css');
+@import url('./semantics/typography.semantics.css');
+@import url('./themes/light.css');
+@import url('./themes/dark.css');
+@import url('./base.css');

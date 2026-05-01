@@ -1,0 +1,7 @@
+@layer semantics {
+  :root {
+    --border-width-thin: 1px;
+    --border-width-accent: 2px;
+    --border-width-indicator: 3px;
+  }
+}

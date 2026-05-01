@@ -1,0 +1,10 @@
+@layer semantics {
+  :root {
+    --shadow-interactive: var(--shadow-xs);
+    --shadow-card: var(--shadow-sm);
+    --shadow-dropdown: var(--shadow-md);
+    --shadow-modal: var(--shadow-xl);
+    --shadow-toast: var(--shadow-lg);
+    --shadow-tooltip: var(--shadow-md);
+  }
+}

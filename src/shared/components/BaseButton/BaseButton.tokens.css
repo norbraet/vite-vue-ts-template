@@ -1,0 +1,13 @@
+@layer components {
+  :root {
+    --button-height: var(--size-control-sm);
+    --button-padding-x: var(--space-component-md);
+    --button-padding-y: var(--space-component-sm);
+    --button-radius: var(--radius-button);
+    --button-font-size: var(--text-small-size);
+    --button-font-weight: var(--text-label-weight);
+    --button-gap: var(--space-component-xs);
+    --button-transition-duration: var(--motion-fast);
+    --button-transition-easing: var(--motion-ease-standard);
+  }
+}
