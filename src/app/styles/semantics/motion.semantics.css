@@ -1,0 +1,11 @@
+@layer semantics {
+  :root {
+    --motion-fast: var(--motion-duration-fast);
+    --motion-normal: var(--motion-duration-normal);
+    --motion-emphasized: var(--motion-duration-moderate);
+
+    --motion-ease-standard: var(--motion-ease-in-out);
+    --motion-ease-enter: var(--motion-ease-out);
+    --motion-ease-exit: var(--motion-ease-in);
+  }
+}
