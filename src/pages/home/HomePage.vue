@@ -187,7 +187,7 @@
 
   .badge-grid a.badge {
     text-decoration: none;
-    color: var(--color-text-muted);
+    color: var(--color-text);
     padding: var(--space-component-nano);
     background-color: var(--color-surface-raised);
     border-radius: var(--radius-tag);

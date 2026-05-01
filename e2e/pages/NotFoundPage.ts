@@ -9,8 +9,8 @@ export class NotFoundPage extends AppPage {
   constructor(page: Page) {
     super(page)
     this.errorCode = page.locator('.error-content h1')
-    this.goHomeButton = page.locator('.actions .btn-primary')
-    this.goBackButton = page.locator('.actions button:not(.btn-primary)')
+    this.goHomeButton = page.locator('.actions .variant-primary')
+    this.goBackButton = page.locator('.actions button:not(.variant-primary)')
   }
 
   async goto(): Promise<void> {
