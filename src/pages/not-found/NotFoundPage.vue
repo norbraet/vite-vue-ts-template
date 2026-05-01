@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { useI18n } from 'vue-i18n'
   import { useRouter } from 'vue-router'
+  import BaseButton from '@/shared/components/BaseButton.vue'
 
   const router = useRouter()
   const { t } = useI18n()
@@ -22,8 +23,10 @@
       <p>{{ t('notFound.description') }}</p>
 
       <div class="actions">
-        <button class="btn-primary" @click="goHome">{{ t('notFound.goHome') }}</button>
-        <button @click="goBack">{{ t('notFound.goBack') }}</button>
+        <BaseButton variant="primary" class="action-btn" @click="goHome">{{
+          t('notFound.goHome')
+        }}</BaseButton>
+        <BaseButton class="action-btn" @click="goBack">{{ t('notFound.goBack') }}</BaseButton>
       </div>
     </div>
   </div>
@@ -70,7 +73,7 @@
     justify-content: center;
   }
 
-  .actions button {
+  .action-btn {
     min-width: 7.5rem;
   }
 </style>

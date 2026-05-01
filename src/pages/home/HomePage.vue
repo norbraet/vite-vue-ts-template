@@ -2,6 +2,7 @@
   import { useI18n } from 'vue-i18n'
   import { useThemeStore } from '@/features/theme/model/useThemeStore'
   import { THEME_OPTIONS } from '@/features/theme/config'
+  import BaseButton from '@/shared/components/BaseButton.vue'
 
   const { t } = useI18n()
   const appStore = useThemeStore()
@@ -107,10 +108,10 @@
       <h1>{{ t('home.title') }}</h1>
       <p>{{ t('home.subtitle') }}</p>
       <div class="hero-actions">
-        <router-link to="/guide" class="btn-primary">{{ t('home.viewGuide') }}</router-link>
-        <button @click="toggleTheme">
+        <BaseButton variant="primary" to="/guide">{{ t('home.viewGuide') }}</BaseButton>
+        <BaseButton @click="toggleTheme">
           {{ t('theme.currentLabel', { theme: t(`theme.options.${appStore.theme}`) }) }}
-        </button>
+        </BaseButton>
       </div>
     </section>
 
