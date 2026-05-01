@@ -10,6 +10,7 @@
 @import url('./primitives/z-index.css');
 @import url('./semantics/colors.semantics.css');
 @import url('./semantics/layout.semantics.css');
+@import url('./semantics/borders.semantics.css');
 @import url('./semantics/motion.semantics.css');
 @import url('./semantics/typography.semantics.css');
 @import url('./themes/dark.css');

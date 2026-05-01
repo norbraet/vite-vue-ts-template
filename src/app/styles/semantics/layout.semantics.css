@@ -2,28 +2,42 @@
   :root {
     --space-page: var(--space-6);
     --space-section: var(--space-12);
+
+    --space-component-nano: var(--space-1);
     --space-component-xs: var(--space-2);
     --space-component-sm: var(--space-3);
     --space-component-md: var(--space-4);
-    --space-component-lg: var(--space-6);
+    --space-component-lg: var(--space-5);
+    --space-component-xl: var(--space-6);
+
+    --space-content: var(--space-10);
+
+    --size-control-sm: var(--space-8);
+    --size-icon-sm: var(--space-5);
+
     --layout-max-width: 72rem;
     --layout-sidebar-width: 16rem;
     --layout-gap: var(--space-6);
+    --layout-menu-min-sm: 8rem;
 
     [data-density='compact'] {
+      --space-component-nano: var(--space-1);
       --space-component-xs: var(--space-1);
       --space-component-sm: var(--space-2);
       --space-component-md: var(--space-3);
       --space-component-lg: var(--space-4);
+      --space-component-xl: var(--space-5);
       --space-page: var(--space-4);
       --space-section: var(--space-8);
     }
 
     [data-density='comfortable'] {
+      --space-component-nano: var(--space-2);
       --space-component-xs: var(--space-2);
       --space-component-sm: var(--space-4);
       --space-component-md: var(--space-5);
       --space-component-lg: var(--space-6);
+      --space-component-xl: var(--space-8);
       --space-page: var(--space-8);
       --space-section: var(--space-16);
     }
