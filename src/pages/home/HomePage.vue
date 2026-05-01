@@ -131,33 +131,35 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   .hero {
     text-align: center;
+    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
     padding: 5rem 1rem 4rem;
   }
 
   .hero h1 {
+    /* stylelint-disable-next-line plugin/no-hardcoded-typography */
     font-size: clamp(2rem, 6vw, 3.5rem);
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    line-height: 1.1;
-    margin-bottom: 1.25rem;
-    background: linear-gradient(145deg, var(--color-text-primary) 20%, var(--color-primary) 100%);
+    font-weight: var(--text-display-weight);
+    letter-spacing: var(--text-spacing-heading);
+    line-height: var(--text-line-tight);
+    margin-bottom: var(--space-component-xl);
+    background: linear-gradient(145deg, var(--color-text) 20%, var(--color-primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .hero p {
-    font-size: 1.125rem;
+    font-size: var(--text-lg-size);
     max-width: 500px;
-    margin: 0 auto 2.5rem;
+    margin: 0 auto var(--space-content);
   }
 
   .hero-actions {
     display: flex;
-    gap: 0.75rem;
+    gap: var(--space-component-sm);
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -168,23 +170,23 @@
   }
 
   .stack h2 {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-text-secondary);
-    letter-spacing: 0.06em;
+    font-size: var(--text-xs-size);
+    font-weight: var(--text-label-weight);
+    color: var(--color-text-muted);
+    letter-spacing: var(--text-spacing-label);
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-component-md);
   }
 
   .badge-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: var(--space-component-xs);
   }
 
   .badge-grid a.badge {
     text-decoration: none;
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted);
   }
 
   .badge-grid a.badge:hover {

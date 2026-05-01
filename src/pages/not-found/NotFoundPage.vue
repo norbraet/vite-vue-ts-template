@@ -42,30 +42,31 @@
   }
 
   .error-content h1 {
+    /* stylelint-disable-next-line plugin/no-hardcoded-typography */
     font-size: clamp(5rem, 20vw, 9rem);
-    font-weight: 700;
-    letter-spacing: -0.06em;
-    line-height: 1;
-    margin: 0 0 0.5rem;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-text-secondary) 100%);
+    font-weight: var(--text-display-weight);
+    letter-spacing: var(--text-spacing-display);
+    line-height: var(--text-line-none);
+    margin: 0 0 var(--space-component-xs);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-text-muted) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .error-content h2 {
-    font-size: 1.375rem;
-    margin-bottom: 0.75rem;
+    font-size: var(--text-title-size);
+    margin-bottom: var(--space-component-sm);
   }
 
   .error-content p {
-    font-size: 1rem;
-    margin-bottom: 2.5rem;
+    font-size: var(--text-body-size);
+    margin-bottom: var(--space-content);
   }
 
   .actions {
     display: flex;
-    gap: 0.75rem;
+    gap: var(--space-component-sm);
     justify-content: center;
   }
 

@@ -42,7 +42,7 @@
   <NotificationToast />
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   #app {
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -53,34 +53,34 @@
   header {
     position: sticky;
     top: 0;
-    z-index: 100;
-    background: var(--color-nav-bg);
+    z-index: var(--z-sticky);
+    background: var(--color-surface);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: var(--border-width-thin) solid var(--color-border);
   }
 
   .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 72rem;
+    max-width: var(--layout-max-width);
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 var(--space-page);
     height: 3.5rem;
-    gap: 1rem;
+    gap: var(--space-component-md);
   }
 
   .logo {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-size: var(--text-prose-size);
+    font-weight: var(--text-display-weight);
+    letter-spacing: var(--text-spacing-ui);
     text-decoration: none;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-text-primary) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-text) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    transition: opacity 0.15s ease;
+    transition: opacity var(--motion-fast) var(--motion-ease-standard);
     flex-shrink: 0;
   }
 
@@ -91,64 +91,64 @@
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--space-component-sm);
   }
 
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: var(--space-component-nano);
   }
 
   .nav-link {
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted);
     text-decoration: none;
-    font-weight: 500;
-    font-size: 0.875rem;
-    padding: 0.375rem 0.75rem;
+    font-weight: var(--text-emphasis-weight);
+    font-size: var(--text-small-size);
+    padding: var(--space-component-xs) var(--space-component-sm);
     border-radius: var(--radius-md);
     transition:
-      color 0.15s ease,
-      background-color 0.15s ease;
+      color var(--motion-fast) var(--motion-ease-standard),
+      background-color var(--motion-fast) var(--motion-ease-standard);
   }
 
   .nav-link:hover {
-    color: var(--color-text-primary);
+    color: var(--color-text);
     background-color: var(--color-bg-subtle);
   }
 
   .nav-link.router-link-active {
     color: var(--color-primary);
     background-color: var(--color-primary-subtle);
-    font-weight: 600;
+    font-weight: var(--text-label-weight);
   }
 
   main {
-    padding: 3rem 0;
+    padding: var(--space-section) 0;
   }
 
   footer {
-    border-top: 1px solid var(--color-border);
-    background-color: var(--color-bg-secondary);
+    border-top: var(--border-width-thin) solid var(--color-border);
+    background-color: var(--color-surface-raised);
   }
 
   footer p {
-    max-width: 72rem;
+    max-width: var(--layout-max-width);
     margin: 0 auto;
-    padding: 1rem 1.5rem;
-    color: var(--color-text-secondary);
-    font-size: 0.8125rem;
+    padding: var(--space-component-md) var(--space-component-lg);
+    color: var(--color-text-muted);
+    font-size: var(--text-caption-size);
     text-align: center;
   }
 
   @media (max-width: 768px) {
     .main-header {
-      padding: 0 1rem;
+      padding: 0 var(--space-component-md);
       height: auto;
       min-height: 3.5rem;
       flex-wrap: wrap;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
+      padding-top: var(--space-component-xs);
+      padding-bottom: var(--space-component-xs);
     }
 
     .header-actions {
@@ -157,8 +157,8 @@
     }
 
     .nav-link {
-      padding: 0.25rem 0.5rem;
-      font-size: 0.8125rem;
+      padding: var(--space-component-nano) var(--space-component-xs);
+      font-size: var(--text-caption-size);
     }
   }
 </style>

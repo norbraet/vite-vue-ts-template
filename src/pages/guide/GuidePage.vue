@@ -168,43 +168,44 @@ shared/i18n/
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   .guide {
     max-width: 760px;
   }
 
   h1 {
+    /* stylelint-disable-next-line plugin/no-hardcoded-typography */
     font-size: clamp(1.5rem, 4vw, 2rem);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-component-xs);
   }
 
   h1 + p {
-    color: var(--color-text-secondary);
-    margin-bottom: 2.5rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-content);
   }
 
   .card {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-component-md);
   }
 
   .card h2 {
-    font-size: 0.9375rem;
-    color: var(--color-text-primary);
-    margin-bottom: 0.875rem;
-    padding-left: 0.75rem;
-    border-left: 2px solid var(--color-primary);
-    letter-spacing: -0.01em;
+    font-size: var(--text-prose-size);
+    color: var(--color-text);
+    margin-bottom: var(--space-component-sm);
+    padding-left: var(--space-component-sm);
+    border-left: var(--border-width-accent) solid var(--color-primary);
+    letter-spacing: var(--text-spacing-tight);
   }
 
   .card p {
-    margin-bottom: 0.75rem;
-    font-size: 0.9375rem;
+    margin-bottom: var(--space-component-sm);
+    font-size: var(--text-prose-size);
   }
 
   .card ol,
   .card ul:not(.scripts) {
-    margin: 0.75rem 0;
-    padding-left: 1.25rem;
+    margin: var(--space-component-sm) 0;
+    padding-left: var(--space-component-xl);
     list-style: initial;
   }
 
@@ -213,44 +214,53 @@ shared/i18n/
   }
 
   .card li {
+    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
     margin: 0.4rem 0;
-    color: var(--color-text-secondary);
-    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    font-size: var(--text-prose-size);
   }
 
   .card li strong {
-    color: var(--color-text-primary);
-    font-weight: 600;
+    color: var(--color-text);
+    font-weight: var(--text-label-weight);
   }
 
   code {
-    font-family: var(--font-mono);
-    font-size: 0.8125em;
+    font-family: var(--text-mono-font);
+    font-size: var(--text-caption-size);
     background-color: var(--color-bg-subtle);
     color: var(--color-primary);
-    border: 1px solid var(--color-border);
+    border: var(--border-width-thin) solid var(--color-border);
     border-radius: var(--radius-sm);
+
+    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
     padding: 0.15em 0.4em;
   }
 
   .code-block {
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
+    font-family: var(--text-mono-font);
+    font-size: var(--text-caption-size);
+
     /* Always dark — looks like a real code editor regardless of theme */
+    /* stylelint-disable-next-line plugin/no-hardcoded-colors */
     background-color: #09090b;
+    /* stylelint-disable-next-line plugin/no-hardcoded-colors */
     color: #d4d4d8;
+    /* stylelint-disable-next-line plugin/no-hardcoded-colors, plugin/no-hardcoded-border */
     border: 1px solid #27272a;
     border-radius: var(--radius-lg);
-    padding: 1.125rem 1.25rem;
+    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
+    padding: 1.125rem var(--space-component-xl);
     overflow-x: auto;
     white-space: pre;
+    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
     margin: 0.875rem 0;
-    line-height: 1.7;
+    line-height: var(--text-line-relaxed);
   }
 
   .hint {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
+    font-size: var(--text-small-size);
+    color: var(--color-text-muted);
     font-style: italic;
   }
 
@@ -259,16 +269,18 @@ shared/i18n/
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--space-component-xs);
   }
 
   .scripts li {
     display: flex;
     align-items: baseline;
+    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
     gap: 0.625rem;
+    /* stylelint-disable-next-line plugin/no-hardcoded-spacing */
     padding: 0.375rem 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 0.9375rem;
+    border-bottom: var(--border-width-thin) solid var(--color-border);
+    font-size: var(--text-prose-size);
   }
 
   .scripts li:last-child {
