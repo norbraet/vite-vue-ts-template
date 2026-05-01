@@ -146,10 +146,7 @@
     letter-spacing: var(--text-spacing-heading);
     line-height: var(--text-line-tight);
     margin-bottom: var(--space-component-xl);
-    background: linear-gradient(145deg, var(--color-text) 20%, var(--color-primary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-primary);
   }
 
   .hero p {
