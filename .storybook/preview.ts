@@ -86,7 +86,30 @@ setup((app) => {
   app.use(router)
 })
 
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Farbschema der Komponenten',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'circlehollow',
+      items: [
+        { value: 'light', icon: 'sun', title: 'Hell' },
+        { value: 'dark', icon: 'moon', title: 'Dunkel' },
+      ],
+      dynamicTitle: true,
+    },
+  },
+}
+
 const preview: Preview = {
+  decorators: [
+    (_story, context) => ({
+      setup: () => ({ theme: context.globals['theme'] ?? 'light' }),
+      template:
+        '<div style="background-color: var(--color-bg-subtle)" :data-theme="theme"><story /></div>',
+    }),
+  ],
   parameters: {
     controls: {
       matchers: {
