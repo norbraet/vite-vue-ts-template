@@ -133,7 +133,7 @@
     max-width: var(--layout-max-width);
     margin: 0 auto;
     padding: var(--space-component-md) var(--space-component-lg);
-    color: var(--color-text-muted);
+    color: var(--color-text);
     font-size: var(--text-caption-size);
     text-align: center;
   }
