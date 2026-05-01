@@ -1,4 +1,4 @@
-@layer reset, primitives, semantics, themes, base;
+@layer reset, primitives, semantics, themes, components, base;
 
 @import url('./reset.css');
 @import url('./primitives/colors.css');
@@ -11,6 +11,8 @@
 @import url('./semantics/colors.semantics.css');
 @import url('./semantics/layout.semantics.css');
 @import url('./semantics/borders.semantics.css');
+@import url('./semantics/shadows.semantics.css');
+@import url('./semantics/radius.semantics.css');
 @import url('./semantics/motion.semantics.css');
 @import url('./semantics/typography.semantics.css');
 @import url('./themes/light.css');

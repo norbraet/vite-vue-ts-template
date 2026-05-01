@@ -19,6 +19,7 @@
     --font-size-3xl: 1.875rem;
     --font-size-4xl: 2.25rem;
     --font-size-5xl: 3rem;
+    --font-size-6xl: 3.75rem;
 
     --font-weight-regular: 400;
     --font-weight-medium: 500;
@@ -30,6 +31,7 @@
     --line-height-snug: 1.4;
     --line-height-normal: 1.5;
     --line-height-relaxed: 1.7;
+    --line-height-loose: 2;
 
     --letter-spacing-tight: -0.01em;
     --letter-spacing-ui: -0.02em;

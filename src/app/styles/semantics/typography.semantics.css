@@ -15,6 +15,16 @@
     --text-h2-line-height: var(--line-height-tight);
     --text-h3-size: var(--font-size-3xl);
     --text-h3-weight: var(--font-weight-semibold);
+    --text-h3-line-height: var(--line-height-tight);
+    --text-h4-size: var(--font-size-2xl);
+    --text-h4-weight: var(--font-weight-semibold);
+    --text-h4-line-height: var(--line-height-snug);
+    --text-h5-size: var(--font-size-xl);
+    --text-h5-weight: var(--font-weight-semibold);
+    --text-h5-line-height: var(--line-height-snug);
+    --text-h6-size: var(--font-size-lg);
+    --text-h6-weight: var(--font-weight-semibold);
+    --text-h6-line-height: var(--line-height-normal);
 
     --text-xs-size: var(--font-size-xs);
     --text-caption-size: var(--font-size-caption);
@@ -33,7 +43,9 @@
     --text-line-none: var(--line-height-none);
     --text-line-tight: var(--line-height-tight);
     --text-line-snug: var(--line-height-snug);
+    --text-line-normal: var(--line-height-normal);
     --text-line-relaxed: var(--line-height-relaxed);
+    --text-line-loose: var(--line-height-loose);
 
     --text-spacing-tight: var(--letter-spacing-tight);
     --text-spacing-ui: var(--letter-spacing-ui);

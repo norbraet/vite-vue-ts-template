@@ -106,7 +106,7 @@
     font-weight: var(--text-emphasis-weight);
     font-size: var(--text-small-size);
     padding: var(--space-component-xs) var(--space-component-sm);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-button);
     transition:
       color var(--motion-fast) var(--motion-ease-standard),
       background-color var(--motion-fast) var(--motion-ease-standard);

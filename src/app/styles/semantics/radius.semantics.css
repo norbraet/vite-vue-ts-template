@@ -1,0 +1,14 @@
+@layer semantics {
+  :root {
+    --radius-button: var(--radius-md);
+    --radius-input: var(--radius-md);
+    --radius-card: var(--radius-lg);
+    --radius-menu: var(--radius-lg);
+    --radius-modal: var(--radius-xl);
+    --radius-toast: var(--radius-xl);
+    --radius-badge: var(--radius-full);
+    --radius-tooltip: var(--radius-sm);
+    --radius-tag: var(--radius-sm);
+    --radius-focus: var(--radius-sm);
+  }
+}

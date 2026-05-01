@@ -36,12 +36,31 @@
   h3 {
     font-size: var(--text-h3-size);
     font-weight: var(--text-h3-weight);
+    line-height: var(--text-h3-line-height);
+  }
+
+  h4 {
+    font-size: var(--text-h4-size);
+    font-weight: var(--text-h4-weight);
+    line-height: var(--text-h4-line-height);
+  }
+
+  h5 {
+    font-size: var(--text-h5-size);
+    font-weight: var(--text-h5-weight);
+    line-height: var(--text-h5-line-height);
+  }
+
+  h6 {
+    font-size: var(--text-h6-size);
+    font-weight: var(--text-h6-weight);
+    line-height: var(--text-h6-line-height);
   }
 
   :focus-visible {
     outline: var(--focus-ring-width, 2px) solid var(--color-focus);
     outline-offset: var(--focus-ring-offset, 2px);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-focus);
   }
 
   .container {

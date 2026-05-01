@@ -15,6 +15,8 @@
     --color-primary-hover: var(--color-blue-600);
     --color-primary-active: var(--color-blue-700);
     --color-primary-subtle: var(--color-blue-100);
+    --color-info: var(--color-blue-500);
+    --color-info-bg: var(--color-blue-50);
     --color-success: var(--color-green-500);
     --color-success-bg: var(--color-green-50);
     --color-warning: var(--color-orange-500);
@@ -22,5 +24,8 @@
     --color-error: var(--color-red-500);
     --color-error-bg: var(--color-red-50);
     --color-focus: var(--color-blue-500);
+
+    --color-surface-sunken: var(--color-neutral-100);
+    --color-surface-overlay: rgb(15 23 42 / 40%);
   }
 }
