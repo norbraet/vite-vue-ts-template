@@ -21,6 +21,7 @@
     "lint:fix": "eslint . --fix",
     "lint:css": "stylelint 'src/**/*.{vue,css}'",
     "lint:css:fix": "stylelint 'src/**/*.{vue,css}' --fix",
+    "lint:css:staged": "stylelint",
     "typecheck": "vue-tsc --noEmit",
     "hooks:install": "lefthook install",
     "hooks:uninstall": "lefthook uninstall",
