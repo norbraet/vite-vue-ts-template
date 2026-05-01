@@ -1,0 +1,16 @@
+@layer primitives {
+  :root {
+    --motion-duration-instant: 0ms;
+    --motion-duration-fast: 100ms;
+    --motion-duration-normal: 200ms;
+    --motion-duration-moderate: 300ms;
+    --motion-duration-slow: 500ms;
+    --motion-duration-slower: 700ms;
+
+    --motion-ease-linear: linear;
+    --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --motion-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --motion-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --motion-ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  }
+}
