@@ -158,6 +158,7 @@ shared/i18n/
         <li><code>pnpm build</code> - {{ t('guide.scripts.build') }}</li>
         <li><code>pnpm preview</code> - {{ t('guide.scripts.preview') }}</li>
         <li><code>pnpm lint</code> - {{ t('guide.scripts.lint') }}</li>
+        <li><code>pnpm lint:css</code> - {{ t('guide.scripts.lintcss') }}</li>
         <li><code>pnpm format</code> - {{ t('guide.scripts.format') }}</li>
         <li><code>pnpm typecheck</code> - {{ t('guide.scripts.typecheck') }}</li>
         <li><code>pnpm test</code> - {{ t('guide.scripts.test') }}</li>
