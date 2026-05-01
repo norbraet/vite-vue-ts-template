@@ -44,6 +44,12 @@
     border-radius: var(--radius-sm);
   }
 
+  .container {
+    max-width: var(--layout-max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-page);
+  }
+
   .theme-transition * {
     transition:
       background-color var(--motion-normal) var(--motion-ease-standard),
