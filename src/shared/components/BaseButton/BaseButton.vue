@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { computed } from 'vue'
   import { RouterLink, type RouteLocationRaw } from 'vue-router'
+  import './BaseButton.tokens.css'
 
   defineOptions({ inheritAttrs: false })
 
@@ -36,21 +37,21 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-component-xs);
-    min-height: var(--size-control-sm);
-    padding: 0 var(--space-component-md);
-    border-radius: var(--radius-md);
-    font-size: var(--text-small-size);
-    font-weight: var(--text-label-weight);
+    gap: var(--button-gap);
+    min-height: var(--button-height);
+    padding: var(--button-padding-y) var(--button-padding-x);
+    border-radius: var(--button-radius);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
     letter-spacing: inherit;
     line-height: var(--text-line-none);
     text-decoration: none;
     cursor: pointer;
     transition:
-      background-color var(--motion-fast) var(--motion-ease-standard),
-      color var(--motion-fast) var(--motion-ease-standard),
-      border-color var(--motion-fast) var(--motion-ease-standard),
-      opacity var(--motion-fast) var(--motion-ease-standard);
+      background-color var(--button-transition-duration) var(--button-transition-easing),
+      color var(--button-transition-duration) var(--button-transition-easing),
+      border-color var(--button-transition-duration) var(--button-transition-easing),
+      opacity var(--button-transition-duration) var(--button-transition-easing);
   }
 
   .base-button:disabled {

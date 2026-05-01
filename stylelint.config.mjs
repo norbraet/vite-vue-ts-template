@@ -30,6 +30,9 @@ export default {
     'plugin/no-hardcoded-typography': true,
     'plugin/no-hardcoded-spacing': true,
     'plugin/no-primitive-tokens': true,
-    'plugin/no-undefined-tokens': [true, { tokenDirs: ['./src/app/styles'] }],
+    'plugin/no-undefined-tokens': [
+      true,
+      { tokenDirs: ['./src/app/styles', './src/shared/components'] },
+    ],
   },
 }
