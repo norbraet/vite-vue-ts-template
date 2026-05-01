@@ -13,6 +13,6 @@
 @import url('./semantics/borders.semantics.css');
 @import url('./semantics/motion.semantics.css');
 @import url('./semantics/typography.semantics.css');
-@import url('./themes/dark.css');
 @import url('./themes/light.css');
+@import url('./themes/dark.css');
 @import url('./base.css');

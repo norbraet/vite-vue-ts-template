@@ -1,6 +1,6 @@
 @layer themes {
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme]) {
       --color-bg: var(--color-neutral-900);
       --color-bg-subtle: var(--color-neutral-800);
       --color-bg-muted: var(--color-neutral-700);
